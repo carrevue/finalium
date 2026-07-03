@@ -70,7 +70,7 @@
                         {% endif %}
                         {% if shelf.label %}<span class="shelf-label">{{ shelf.label }}</span>{% endif %}
                     </div>
-                    <div class="shelf-description">Shelf Description</div>
+                    {% if shelf.desc %}<div class="shelf-description">{{ shelf.desc }}</div>{% endif %}
                     <div class="shelf-slider">
                         {% for upload in shelf.uploads %}
                             <div class="shelf-grid-item">
