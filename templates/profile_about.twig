@@ -16,10 +16,10 @@
                 <div><strong>{{ common.followers | format_number() }}</strong> followers • <strong>{{ common.views | format_number() }}</strong> views</div>
                 <div>Joined {{ common.joined | format_date('medium', 'none') }}</div>
             </div>
-            {% if data.about | trim is not empty %}
+            {% if common.about | trim is not empty %}
                 <h2 class="about-header">Description</h2>
                 <div>
-                    {{ data.about | markdown_user_written }}
+                    {{ common.about | markdown_user_written }}
                 </div>
             {% endif %}
             {#
