@@ -45,7 +45,7 @@
             {% for item in sidebar_user_links() %}
                 <li class="guide-channel">
                     <a href="/user/{{ item.username }}" class="guide-item {% if page_name == "user " ~ item.username %}selected{% endif %}">
-                        <img class="thumb profile-picture" src="{{ profile_picture(item.id) }}">
+                        <img class="thumb profile-picture" src="{{ profile_picture(item.id) }}" loading="lazy">
                         {{ item.displayname }}
                     </a>
                 </li>

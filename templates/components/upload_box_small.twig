@@ -7,7 +7,7 @@
                 </div>
             </div>
         {% endif %}
-        <img src="{{ thumbnail(upload.id, upload.type, upload.flags.custom_thumbnail) }}" alt="{{ upload.title }}">
+        <img src="{{ thumbnail(upload.id, upload.type, upload.flags.custom_thumbnail) }}" alt="{{ upload.title }}" loading="lazy">
     </div>
     <div class="content-wrapper">
         <h3 class="title">{{ upload.title }}</h3>

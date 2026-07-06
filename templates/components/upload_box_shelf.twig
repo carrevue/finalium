@@ -15,7 +15,7 @@
                 </div>
             {% endif %}
             <a href="/watch?v={{ upload.id }}" class="spf-link">
-                <img src="{{ thumbnail(upload.id, upload.type, upload.flags.custom_thumbnail) }}" alt="{{ upload.title }}">
+                <img src="{{ thumbnail(upload.id, upload.type, upload.flags.custom_thumbnail) }}" alt="{{ upload.title }}" loading="lazy">
             </a>
         </div>
         <div class="content-wrapper">

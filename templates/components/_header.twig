@@ -65,7 +65,7 @@
                             {#<div class="header">Other accounts</div>#}
                             {% for link in header_user_switcher_links() %}
                                 <a class="user-option" href="/login/{{ link.name }}">
-                                    <img src="{{ profile_picture(link.id) }}" class="profile-picture" alt="{{ link.title }}">
+                                    <img src="{{ profile_picture(link.id) }}" class="profile-picture" alt="{{ link.title }}" loading="lazy">
                                     <div class="info">
                                         <div class="name">{{ link.title }}</div>
                                         <div class="followers">{{ localize('followers', link.f_index) }}</div>

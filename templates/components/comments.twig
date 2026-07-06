@@ -5,7 +5,7 @@
     <div class="comment" id="new-comment">
         <div class="comment-avatar">
             <a href="/user/{{ comment.author.info.username }}" class="spf-link">
-                <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}">
+                <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}" loading="lazy">
             </a>
         </div>
         <div class="comment-body">

@@ -41,7 +41,7 @@
                 {# temporary design #}
                 {% for user in data.staff|sort((a, b) => b.level <=> a.level) %}
                         <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
-                            <img src="{{ profile_picture(user.id) }}" alt="{{ user.info.username }}" width="48" height="48" class="profile-picture">
+                            <img src="{{ profile_picture(user.id) }}" alt="{{ user.info.username }}" width="48" height="48" class="profile-picture" loading="lazy">
                             {{ user_link(user) }}
                             <div>{{ user_role_titles[user.level] }}</div>
                         </div>

@@ -2,7 +2,7 @@
     <div class="comment" id="comment-{{ comment.id }}">
         <div class="comment-avatar">
             <a href="/user/{{ comment.author.info.username }}" class="spf-link">
-                <img src="{{ profile_picture(comment.author.id) }}" class="profile-picture" alt="{{ comment.author.info.username }}">
+                <img src="{{ profile_picture(comment.author.id) }}" class="profile-picture" alt="{{ comment.author.info.username }}" loading="lazy">
             </a>
         </div>
         <div class="comment-body">
@@ -29,7 +29,7 @@
                 <div class="comment">
                     <div class="comment-avatar">
                         <a href="/user/{{ user_data.username }}" class="spf-link">
-                            <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}">
+                            <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}" loading="lazy">
                         </a>
                     </div>
                     <div class="comment-body">

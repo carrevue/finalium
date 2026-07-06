@@ -120,7 +120,7 @@ function handleCommentEvents() {
 }
 
 function submitComment(type, id, content, replyTo = 0) {
-    fetch("/api/skin/comment_send", {
+    fetchWithRetry("/api/skin/comment_send", {
         method: "POST",
         body: JSON.stringify({
             type: type,
@@ -565,7 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // load comments
     const comments = document.getElementById('comments');
     if (comments) {
-        fetch(`/api/skin/comment_load?location=${encodeURIComponent(comment_location_type)}&id=${encodeURIComponent(comment_location_id)}`, {
+        fetchWithRetry(`/api/skin/comment_load?location=${encodeURIComponent(comment_location_type)}&id=${encodeURIComponent(comment_location_id)}`, {
             method: "GET",
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
@@ -591,7 +591,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ?? document.querySelector('.follow-count');
 
         followButton.addEventListener('click', function () {
-            fetch('/api/skin/user_interaction', {
+            fetchWithRetry('/api/skin/user_interaction', {
                 method: 'POST',
                 body: JSON.stringify({
                     action: 'follow',
@@ -660,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         function sendInteraction(action) {
-            return fetch("/api/skin/upload_interaction", {
+            return fetchWithRetry("/api/skin/upload_interaction", {
                 method: "POST",
                 headers: { "Content-Type": "application/json; charset=UTF-8" },
                 body: JSON.stringify({
