@@ -1,3 +1,6 @@
+@use 'config' as *;
+@use "variables";
+
 @function contrast-color($color) {
     $light-contrast: #ffffff;
     $dark-contrast: #000000;
@@ -7,10 +10,10 @@
     }
 
     @if $theme == "dark" {
-        @return if(lightness($color) > $threshold, $dark-contrast, $light-contrast);
+        @return if(lightness($color) > variables.$threshold, $dark-contrast, $light-contrast);
     }
 
     @else {
-        @return if(lightness($color) < $threshold, $light-contrast, $dark-contrast);
+        @return if(lightness($color) < variables.$threshold, $light-contrast, $dark-contrast);
     }
 }

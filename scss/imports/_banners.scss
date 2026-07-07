@@ -1,5 +1,6 @@
 @use 'config' as *;
 @use "variables";
+@use 'functions';
 
 .banner {
     @if $theme == "hitchhiker" {
@@ -47,7 +48,7 @@
 @each $state, $value in variables.$banner-colors {
     .banner-#{$state} {
         @if $theme == "hitchhiker" {
-            background-color: variables.$value;
+            background-color: $value;
         }
 
         @else {

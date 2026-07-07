@@ -1,5 +1,6 @@
 @use 'config' as *;
 @use "variables";
+@use 'functions';
 
 $button-padding: 7px 12px;
 
@@ -38,7 +39,7 @@ $button-padding: 7px 12px;
 }
 
 @mixin button-variant($state, $value) {
-    color: contrast-color($value);
+    color: functions.contrast-color($value);
 
     @if $theme == "hitchhiker" {
         background: $value;

@@ -19,11 +19,11 @@ $members-list-entry-height: 80px;
         margin-bottom: 1em;
 
         @if $theme == "hitchhiker" {
-            box-shadow: 0 1px 2px $members-border;
-            border: 1px solid $members-border;
+            box-shadow: 0 1px 2px variables.$members-border;
+            border: 1px solid variables.$members-border;
 
             &:hover {
-                box-shadow: 0 2px 3px $members-border;
+                box-shadow: 0 2px 3px variables.$members-border;
             }
         } @else {
             gap: 1em;
