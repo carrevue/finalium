@@ -1,12 +1,16 @@
 /*!
- * squareBracket Finalium (https://github.com/carrevue/finalium)
+ * Finalium (https://github.com/carrevue/finalium)
  * Copyright 2021-2026 Carrevue Development
  */
 
+@use 'imports/imports' with ($theme: "default", $color-scheme: "dark");
+
+/*
 $theme: "default";
 
 /// Variables \\\
-@import "_variables";
+@use "_variables";
 
 /// Imports \\\
-@import "_imports";
+@use "_imports";
+*/

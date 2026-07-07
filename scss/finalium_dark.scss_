@@ -1,0 +1,80 @@
+/*!
+ * Finalium (https://github.com/carrevue/finalium)
+ * Copyright 2021-2026 Carrevue Development
+ */
+
+$theme: "dark";
+
+@use "_functions";
+@use "_variables";
+
+variables.$threshold: 50%;
+$teal: #468aca;
+variables.$red: #ce1818;
+variables.$white: #FCFCFC;
+variables.$black: #111;
+$purple: #9c35ef;
+$pink: #ff23b1;
+$orange: #ff8800;
+variables.$yellow: #ffd104;
+$cyan: #1778b8;
+variables.$blue: #297fd6;
+variables.$green: #74a60a;
+$aqua: #20c997;
+
+variables.$primary: variables.$blue;
+variables.$secondary: #222;
+variables.$success: variables.$green;
+$info: $cyan;
+variables.$warning: variables.$yellow;
+variables.$danger: variables.$red;
+
+variables.$light: #000;
+variables.$dark: #fff;
+
+variables.$form-input: #2d2d2d;
+variables.$form-input-border: #555555;
+
+variables.$text-color: #ffffff;
+
+variables.$card-bg: #111111;
+variables.$card-border: #333333;
+
+variables.$description-text-color: #cccccc;
+variables.$emphasis-text-color: #eeeeee;
+variables.$header-text-color: #dddddd;
+variables.$light-text-color: #aaaaaa;
+
+variables.$border: #333333;
+
+variables.$masthead-bg: #171717f0;
+variables.$masthead-border: #333333;
+
+variables.$footer-bg: #252525;
+variables.$footer-border: #3a3a3a;
+
+variables.$guide-bg: #252525;
+variables.$guide-border: #3a3a3a;
+
+variables.$body-bg: #000;
+
+variables.$likesaber-gray: #555555;
+
+variables.$button-colors: (
+    "primary": variables.$primary,
+    "default": variables.$secondary,
+    "destructive": variables.$danger,
+    "dark": variables.$dark,
+    "light": variables.$light,
+    // "payment": $green,
+);
+
+variables.$banner-colors: (
+    "error": variables.$danger,
+    "warning": variables.$warning,
+    "success": variables.$success,
+    "info": variables.$primary,
+);
+
+/// Imports \\\
+@use "_imports";

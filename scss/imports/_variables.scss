@@ -1,0 +1,113 @@
+@use 'config' as *;
+
+$columns: 12;
+$gap: 10px;
+
+$threshold: 50%;
+$red: #993300;
+$white: #FCFCFC;
+$black: #111;
+$yellow: #ffbf00;
+$blue: #1b7fcc;
+$green: #559900;
+$primary: $blue;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+
+$light: #f8f9fa;
+$dark: #343a40;
+
+$form-input: #fff;
+$form-input-border: #D3D3D3;
+
+$text-color: #000;
+
+$card-bg: #fff;
+$card-border: #e2e2e2; // only used on default finalium theme
+
+// these variables should be renamed to be more generic, 
+// i dont know wtf was i thinking when i named these -chaziz 1/10/2026
+$description-text-color: #333;
+$emphasis-text-color: #444;
+$header-text-color: #555;
+$light-text-color: #666;
+$comment-timestamp: #767676;
+$lightest-gray: #999999;
+
+$border: #e2e2e2;
+
+$members-border: #D9D9D9;
+
+$masthead-bg: #fffffff0;
+$masthead-border: #D3D3D3; // lightgrey
+
+$footer-bg: #F1F1F1; //gray-150
+$footer-border: #E8E8E8; //gray-250
+
+$guide-bg: #F9F9F9;
+$guide-border: #E8E8E8; // lightgrey
+
+$menu-bg: #ffffff;
+$menu-border: #c5c5c5;
+
+$body-bg: #F9F9F9;
+
+$likesaber-gray: #CCCCCC;
+
+$primary: $blue;
+$secondary: $light;
+$success: $green;
+$warning: $yellow;
+$danger: $red;
+
+$accent: $primary;
+
+$button-colors: (
+    "primary": $primary,
+    "default": $secondary,
+    "destructive": $danger,
+    "dark": $dark,
+    "light": $light,
+    // "payment": $green,
+);
+
+$banner-colors: (
+    "error": $danger,
+    "warning": $warning,
+    "success": $success,
+    "info": $primary,
+);
+
+// https://medium.com/@jainbhavukspeaks/leveraging-scss-mixins-to-create-responsive-layouts-the-easy-way-5bbe4080cb15
+
+$breakpoints: (
+    "tiny": (
+        300px,
+    ),
+    "small": (
+        425px,
+    ),
+    "medium": (
+        656px,
+    ),
+    "large": (
+        1294px,
+    ),
+);
+//
+
+$font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+$mastheadwidth: 1200px;
+
+$fullscreen-banner-height: 35px;
+
+$header-height: 48px;
+$masthead-search-bar-height: 31px;
+$guide-width: 230px;
+
+@if $theme == "hitchhiker" {
+    $header-height: 49px;
+    $masthead-search-bar-height: 29px;
+}

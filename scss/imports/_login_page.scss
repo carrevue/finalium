@@ -1,0 +1,101 @@
+@use 'config' as *;
+@use "variables";
+
+.login-body {
+    @if $theme != "hitchhiker" {
+        background: #2B3644 url(/assets/skin/finalium/droplets.jpg);
+        background-size: cover;
+    }
+
+    @else {
+        h1 {
+            font-weight: 300;
+            margin-bottom: 15px;
+
+            @if $theme == "hitchhiker" {
+                font-size: 18px;
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    #logo {
+        height: 38px;
+        margin-bottom: 20px;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .profile-picture {
+        width: 96px;
+        height: 96px;
+        align-self: center;
+        margin-bottom: 10px;
+        border-radius: 50%;
+    }
+
+    .form-login-heading {
+        margin-bottom: 1em;
+    }
+
+    .login-footer {
+        text-align: center;
+
+        @if $theme != "hitchhiker" {
+            color: white;
+        } @else {
+            margin-top: 30px;
+        }
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        font-size: 16px;
+        height: auto;
+        width: 100%;
+        box-sizing: border-box;
+
+        @if $theme != "hitchhiker" {
+            margin-bottom: 15px;
+            padding: 7px 8px;
+        } @else {
+            padding: 11.5px 8px;
+        }
+    }
+
+    .card.has-padding {
+        margin: auto;
+
+        @if $theme == "hitchhiker" {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            width: 354px;
+            padding: 40px;
+        }
+
+        @else {
+            width: 300px;
+            padding: 19px 29px 29px;
+        }
+    }
+}

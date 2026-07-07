@@ -1,0 +1,325 @@
+@use 'config' as *;
+@use "variables";
+
+@mixin button-opacity() {
+    opacity: 50%;
+
+    &:hover {
+        opacity: 60%;
+    }
+
+    &:active {
+        opacity: 80%;
+    }
+}
+
+.upload-container {
+    text-align: center;
+    background: variables.$card-bg;
+
+    margin-bottom: 10px;
+
+    .img-upload {
+        padding: 1rem;
+
+        @if $theme == "hitchhiker" {
+            filter: drop-shadow(0 1px 2px rgba(black, .1));
+        }
+
+        @else {
+            filter: drop-shadow(0 2px 2px rgba(black, 0.25));
+        }
+    }
+}
+
+.watch-error {
+    color: #fff;
+    background: #262626 linear-gradient(#383838,#131313);
+    text-shadow: 0 1px 1px #000;
+    padding: 24px 20px 50px 20px;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+        margin: 1px 0 -1px 5px;
+        font-size: 19px;
+    }
+
+    hr {
+        border-color: #888;
+        margin: 15px 0;
+    }
+
+    p {
+        margin: 0 0 0 5px;
+    }
+
+    .icon {
+        align-self: center;
+        display: grid;
+        flex-grow: 1;
+        margin-top: 30px;
+    }
+}
+
+// originally .viewcount
+.watch-view-count {
+    color: variables.$light-text-color;
+    margin-bottom: 2px;
+    font-size: 19px;
+    line-height: 24px;
+    max-height: 24px;
+}
+
+.watch-creator {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+
+    .profile-picture {
+        width: 48px;
+        aspect-ratio: 1/1;
+    }
+
+    .watch-creator-info {
+        display: flex;
+        flex-direction: column;
+
+        .watch-creator-userlink {
+            height: 22px;
+            @if $theme == "hitchhiker" {
+                .userlink {
+                    color: variables.$description-text-color;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+#watch-not-available {
+    padding: 35px;
+    text-align: center;
+    color: variables.$light-text-color;
+    position: relative;
+}
+
+.watch-panel-close-button {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    width: 30px;
+    height: 30px;
+    padding: 0 10px;
+
+    color: #7F7F7F;
+
+    @include button-opacity();
+}
+
+.watch-creator-bar {
+    display: flex;
+    .watch-creator-bar-left {
+        flex-grow: 1;
+    }
+}
+
+.watch-header {
+    h1 {
+        font-size: 20px;
+    }
+
+    padding-bottom: 0px;
+    min-height: 150px;
+
+    .watch-user-header {
+        padding: 10px 0 0 0;
+    }
+
+    hr.watch-info-divider {
+        @if $theme != "hitchhiker" {
+            margin: 0;
+        } @else {
+            margin: 0 0 5px 0;
+        }
+    }
+
+    .watch-action-buttons {
+        display: flex;
+
+        .watch-sentiment-actions {
+            display: flex;
+
+            .button {
+                padding-right: 0;
+            }
+        }
+
+        .watch-secondary-actions {
+            flex: 1;
+            display: flex;
+            position: relative;
+            left: -10px;
+
+            // temporary
+            .menu-item-button {
+                .icon {
+                    color: black;
+                    opacity: 50%;
+                    //@include button-opacity();
+                }
+
+                &:hover {
+                    .icon {
+                        opacity: 60%;
+                    }
+                }
+
+                &:active {
+                    .icon {
+                        opacity: 80%;
+                    }
+                }   
+            }
+        }
+
+        .button {
+            @include button-opacity();
+            @if $theme != "dark" {
+                color: black;
+            }
+        }
+
+        // this should be in _buttons.scss but i dont wanna fuck with !important
+        .button-like {
+            &.button-toggled {
+                opacity: 100%;
+                color: variables.$primary;
+            }
+        }
+
+        .button-dislike {
+            &.button-toggled {
+                opacity: 100%;
+                color: variables.$dark;
+            }
+        }
+    }
+}
+
+.watch-view-info {
+    align-self: end;
+}
+
+.follow-count {
+    margin-left: -2px;
+    padding: 0 6px;
+    border: 1px solid #ccc;
+    border-radius: 0 2px 2px 0;
+    background: #fafafa;
+    color: #737373;
+    font-size: 11px;
+    text-align: center;
+    height: 24px;
+    line-height: 22px;
+
+    display: inline-block;
+}
+
+/// "Likesaber" for watch page \\\
+.likesaber {
+    top: 1px;
+    position: relative;
+    
+    width: 160px;
+    height: 2px;
+    background-color: variables.$likesaber-gray;
+    float: right;
+
+    .like {
+        float: left;
+        height: 2px;
+        //@if $theme == "hitchhiker" {
+            background-color: variables.$primary;
+        //} @else {
+            //background-color: variables.$green;
+        //}
+    }
+}
+
+#watch-details {
+    .button-expander {
+        margin-top: 10px;
+    }
+}
+
+#watch-description-text {
+    overflow: hidden;
+}
+
+#watch-description {
+    color: variables.$description-text-color;
+    line-height: 17px;
+    overflow: hidden;
+
+    a {
+        color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+        a {
+            color: variables.$primary;
+        }
+    }
+}
+
+#watch-description-extras {
+    margin-top: 8px;
+}
+
+.watch-extras-section {
+    padding: 0;
+    margin: 0;
+}
+
+.watch-meta-item {
+    display: flex;
+
+    .ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .title, .content {
+        font-size: 11px;
+        line-height: 11px;
+        margin-bottom: 5px;
+        list-style: none;
+    }
+
+    .title {
+        font-weight: 500;
+        width: 100px;
+        margin-right: 10px;
+    }
+}
+
+// awkward as fuck -chaziz 02/16/2026
+.expander.expander-collapsed #watch-description-text {
+    max-height: 51px;
+}
+
+.action-panel-error, .action-panel-loading {
+    padding: 20px;
+    color: variables.$light-text-color;
+    text-align: center;
+}
+
+// may be used in other pages, but just put this here for now.
+.spinner {
+    padding: 1em;
+    line-height: 20px;
+}

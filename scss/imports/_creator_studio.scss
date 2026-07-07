@@ -1,0 +1,14 @@
+@use 'config' as *;
+
+#creator-editor {
+    .creator-editor-content {
+        padding: 20px;
+
+        .creator-editor-title {
+            line-height: 1em;
+            margin: 8px 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}

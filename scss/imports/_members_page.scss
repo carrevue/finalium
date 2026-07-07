@@ -1,0 +1,71 @@
+@use 'config' as *;
+@use "variables";
+
+// REFERENCE: https://web.archive.org/web/20160616115710id_/https://www.youtube.com/channels
+
+// referred to as guidebuilder
+
+$members-list-entry-height: 80px;
+
+@if $theme == "hitchhiker" {
+    $members-list-entry-height: 200px;
+}
+
+.members-list {
+    .members-list-member {
+        display: flex;
+        height: $members-list-entry-height + 2px;
+        overflow: hidden;
+        margin-bottom: 1em;
+
+        @if $theme == "hitchhiker" {
+            box-shadow: 0 1px 2px $members-border;
+            border: 1px solid $members-border;
+
+            &:hover {
+                box-shadow: 0 2px 3px $members-border;
+            }
+        } @else {
+            gap: 1em;
+        }
+
+        .members-list-entry-info {
+            flex-grow: 1;
+            @if $theme == "hitchhiker" {
+                padding: 18px;
+            }
+
+            .members-list-entry-top {
+                display: flex;
+                margin-bottom: 12px;
+
+                .members-list-entry-username {
+                    font-size: 14px;
+                    flex-grow: 1;
+                }
+
+                .members-list-entry-follower {
+                    opacity: 50%;
+                }
+            }
+
+            .members-list-entry-description {
+                color: variables.$header-text-color;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                min-width: 0;
+                @if $theme == "hitchhiker" {
+                    -webkit-line-clamp: 3;
+                } @else {
+                    -webkit-line-clamp: 4;
+                }
+            }
+        }
+
+        .profile-picture {
+            width: $members-list-entry-height;
+            height: $members-list-entry-height;
+        }
+    }
+}

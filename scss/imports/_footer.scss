@@ -1,0 +1,76 @@
+@use 'config' as *;
+@use "variables";
+
+.footer {
+    padding: 0 30px;
+    background-color: variables.$footer-bg;
+    border-top: 1px solid variables.$footer-border;
+}
+
+.footer-container {
+    padding: 15px 0;
+    overflow: hidden;
+
+    img {
+        height: 30px;
+        margin-left: 4px;
+        margin-right: 14px;
+    }
+
+    hr {
+        border-color: variables.$footer-border;
+    }
+
+    .footer-main {
+        display: flex;
+        align-items: center;
+        gap: 16.2px; // 14px + 3.2px (html whitespace) - 1px (button group margin???)
+    }
+
+    .footer-links {
+        padding: 15px 0 15px 8px;
+
+        .footer-links-primary,
+        .footer-links-secondary {
+            display: flex;
+            gap: 18.2px; // 15px + 3.2px (html whitespace)
+            line-height: 16px;
+        }
+
+        .footer-links-primary a,
+        .footer-links-secondary a {
+
+            @if $theme == "hitchhiker" {
+                &:hover {
+                    color: variables.$primary;
+                }
+            }
+            
+            font-weight: 500;
+        }
+
+        .footer-links-primary {
+            margin-bottom: 8px;
+
+            a,
+            span {
+                color: #333;
+            }
+        }
+
+        .footer-links-secondary {
+
+            a,
+            span {
+                color: #666;
+                font-size: 11px;
+            }
+        }
+
+        .footer-profiler {
+            margin-top: 0.5em;
+            color: #666;
+            font-size: 11px;
+        }
+    }
+}

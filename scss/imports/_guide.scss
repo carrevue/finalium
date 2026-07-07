@@ -1,0 +1,121 @@
+@use 'config' as *;
+@use "variables";
+
+html.guide-pinned #guide {
+    box-shadow: none;
+    border-right: 1px solid variables.$guide-border;
+    bottom: 0;
+}
+
+html.show-guide #guide {
+    opacity: 1;
+    visibility: visible;
+}
+
+#guide {
+    display: block;
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    top: variables.$header-height;
+    padding-bottom: 50px;
+    background: variables.$guide-bg;
+    border-top: 1px solid variables.$guide-border;
+    z-index: 10000;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity .1s;
+
+    box-shadow: 5px 10px 15px 5px rgba(black, .1);
+
+
+    &:hover {
+        overflow-y: auto;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none
+    }
+
+    hr {
+        margin: 8px 0;
+    }
+
+    &.with-fullscreen-banner {
+        top: variables.$header-height + variables.$fullscreen-banner-height;
+    }
+
+    .guide-container {
+        width: variables.$guide-width;
+
+        @if $theme == "hitchhiker" {
+            padding: 13px 22px;
+        } @else {
+            padding: 1em;
+        }
+    }
+
+    .header {
+        color: variables.$accent;
+        margin: 0 5px;
+        padding: 1px 0 8px;
+        line-height: 13px;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}
+.guide-item {
+    white-space: nowrap;
+    display: flex;
+    height: 28px;
+    justify-content: flex-start;
+    align-items: center;
+
+    @if $theme == "hitchhiker" {
+        color: #222222;
+    } @else {
+        color: #444;
+    }
+
+    .thumb {
+        @if $theme == "hitchhiker" {
+            width: 20px;
+            height: 20px;
+            margin-left: 9px;
+            margin-right: 9.5px; // hitchhiker had a whitespace causing a slightly larger gap
+            color: #878787;
+        } @else {
+            width: 16px;
+            height: 16px;
+            margin: 0 6px 0 8px;
+        }
+    }
+
+    &:hover {
+        background: #444;
+        color: #fff;
+
+        text-decoration: none;
+
+        .thumb {
+            color: inherit;
+        }
+    }
+
+    &.selected {
+        background: variables.$accent;
+        color: #fff;
+        font-weight: 500;
+        
+        @if $theme == "hitchhiker" {
+            text-shadow: -1px -1px 0 rgba(0,0,0,0.25);
+        }
+
+        .thumb {
+            color: inherit;
+        }
+    }
+}

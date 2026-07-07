@@ -1,0 +1,79 @@
+@use 'config' as *;
+
+@use "mixins/responsiveness";
+@use "variables";
+
+// from https://gist.github.com/wiegertschouten/443f7e061d1fc656b229ac4b5b0faece
+
+@mixin create-selectors($breakpoint: null) {
+    $infix: if(sass($breakpoint == null): ""; else: "-#{$breakpoint}");
+
+    @for $i from 1 through variables.$columns {
+        .col#{$infix}-#{$i} {
+            grid-column-end: span $i;
+        }
+
+        .col-offset#{$infix}-#{$i} {
+            grid-column-start: $i + 1;
+        }
+
+        .row#{$infix}-#{$i} {
+            grid-row-end: span $i;
+        }
+
+        .row-offset#{$infix}-#{$i} {
+            grid-row-start: $i + 1;
+        }
+    }
+}
+
+.grid {
+    @include responsiveness.responsive('small') {
+        display: block;
+    }
+
+    @include responsiveness.responsive('medium') {
+        display: grid;
+        grid-template-columns: repeat(variables.$columns, 1fr);
+        grid-gap: variables.$gap;
+        gap: variables.$gap;
+    }
+
+    @include responsiveness.responsive('large') {
+        display: grid;
+        grid-template-columns: repeat(variables.$columns, 1fr);
+        grid-gap: variables.$gap;
+        gap: variables.$gap;
+    }
+}
+
+@include create-selectors;
+
+@each $breakpoint, $width in variables.$breakpoints {
+    @media (min-width: $width) {
+        @include create-selectors($breakpoint);
+    }
+}
+
+// and now this is getting stupid
+.watch-grid {
+    display: flex;
+    gap: variables.$gap;
+
+    .col-left {
+        @include responsiveness.responsive('medium') {
+            min-width: 640px;
+            width: 640px;
+        }
+
+        @include responsiveness.responsive('large') {
+            min-width: 854px;
+            width: 854px;
+        }
+    }
+
+    .col-right {
+        min-width: 416px;
+        width: 416px;
+    }
+}

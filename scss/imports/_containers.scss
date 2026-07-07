@@ -1,0 +1,97 @@
+@use 'config' as *;
+
+@use "mixins/responsiveness";
+@use "variables";
+
+// the login/register pages need to be centered at every resolution.
+.login-container {
+    margin: auto;
+}
+
+html.show-guide.guide-pinned {
+    #page, .jumbotron {
+        padding-left: 230px;
+    }
+
+    .footer {
+        margin-left: 230px;
+    }
+}
+
+#content {
+    margin: 10px auto auto auto;
+
+    @include responsiveness.responsive('tiny') {
+        max-width: 438px;
+    }
+
+    @include responsiveness.responsive('small') {
+        max-width: 438px;
+    }
+
+    @include responsiveness.responsive('medium') {
+        max-width: 850px;
+    }
+
+    @include responsiveness.responsive('large') {
+        max-width: 1262px;
+    }
+}
+
+// TODO
+#content.creator {
+    padding: 0 10px;
+    max-width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+}
+
+// view page uses different widths
+#page.watch .content-alignment, #page.view .content-alignment {
+    width: auto;
+    @include responsiveness.responsive('tiny') {
+        max-width: 100%;
+        min-width: 250px;
+    }
+
+    @include responsiveness.responsive('small') {
+        max-width: 90%;
+        min-width: 426px;
+    }
+
+    @include responsiveness.responsive('medium') {
+        max-width: 1066px;
+        min-width: 1003px;
+    }
+
+    @include responsiveness.responsive('large') {
+        //max-width: 75%;
+        //min-width: 1000px;
+        max-width: 1280px;
+    }
+}
+
+.content-alignment {
+    width: 1003px;
+    margin: auto;
+}
+
+#page.user .content-alignment {
+    margin: auto;
+}
+
+/* todo: flex-width-enabled-snap */
+
+body.flex-width-enabled {
+    $snap-widths: (1: 850px, 2: 1056px, 3: 1262px);
+
+    @each $i, $width in $snap-widths {
+        &.content-snap-width-#{$i} #page .content-alignment {
+            width: $width;
+            max-width: $width;
+        }
+    }
+}

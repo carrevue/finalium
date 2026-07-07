@@ -1,0 +1,119 @@
+@use 'config' as *;
+@use "variables";
+@use 'mixins/responsiveness';
+
+.channel-header-background {
+    @if $theme == "hitchhiker" {
+        background-color: #333;
+    } @else {
+        background: linear-gradient(#888, #444);
+    }
+    border-bottom: 1px solid variables.$border;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: 210px;
+}
+
+.channel-header-profile-picture {
+    margin-left: 15px;
+    width: 100px;
+    height: 100px;
+
+    @if $theme == "hitchhiker" {
+        background: #e9ecee;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+    } @else {
+        box-shadow: 0 1px 8px rgba(0,0,0,.4);
+    }
+}
+
+// slightly ugly but i dont care
+.card.has-padding.channel-header {
+    padding-bottom: 0;
+
+    h1 {
+        color: variables.$description-text-color;
+        font-weight: 500;
+    }
+}
+
+.channel-header-primary {
+    @if $theme == "hitchhiker" {
+        height: 33px;
+    }
+
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+
+    .channel-header-name {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+        gap: 0.5em;
+
+        .channel-header-handle {
+            color: variables.$light-text-color;
+        }
+    }
+}
+
+.channel-header-secondary {
+    display: flex;
+    gap: 20px;
+}
+
+/* duplicate of .sidebar-page-grid from trinium */
+.branded-page-grid {
+    @include responsiveness.responsive('small') {
+        display: block;
+    }
+
+    @include responsiveness.responsive('medium') {
+        display: flex;
+        gap: variables.$gap;
+
+        .content {
+            flex-grow: 1;
+        }
+    }
+}
+
+.secondary-col {
+    width: 196px;
+    min-width: 196px;
+}
+
+.profile-about-container {
+    @if $theme == "hitchhiker" {
+        line-height: 18px;
+    }
+
+    color: variables.$header-text-color;
+
+    .about-stats {
+        margin-bottom: 30px;
+    }
+
+    .about-header {
+        font-size: unset;
+        font-weight: 500;
+    }
+}
+
+.profile-featured-upload {
+    display: flex;
+    gap: 12px;
+
+    .upload-container {
+        width: 60%;
+        max-width: 520px;
+
+        img {
+            width: 100%;
+        }
+    }
+}

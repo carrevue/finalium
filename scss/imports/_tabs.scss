@@ -1,0 +1,43 @@
+@use 'config' as *;
+@use "variables";
+
+.tabcontent {
+    display: none;
+}
+
+.tabs {
+    display: flex;
+    gap: 15px;
+}
+
+.tablink {
+    color: variables.$light-text-color;
+
+    padding: 0 3px;
+    height: 32px; // on yt this was defined as 29px but this doesnt work here
+    line-height: 29px;
+
+    // emulate the classic finalium implementation of tabs
+    @if $theme != "hitchhiker" {
+        transition: .3s;
+        border-bottom: 3px solid rgba(variables.$card-bg, 0);
+    }
+
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &.active,
+    &:hover {
+        border-bottom: 3px solid variables.$accent;
+        @if $theme != "hitchhiker" {
+            color: variables.$description-text-color;
+        }
+    }
+
+    &.active {
+        color: variables.$description-text-color;
+        font-weight: 500;
+    }
+}

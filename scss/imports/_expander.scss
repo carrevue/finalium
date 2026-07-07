@@ -1,0 +1,28 @@
+@use 'config' as *;
+@use "variables";
+
+.button-expander {
+    width: 100%;
+    text-transform: uppercase;
+    color: variables.$comment-timestamp;
+    border-top: 1px solid variables.$border;
+    box-shadow: none;
+
+    &:hover {
+        color: #222222;
+    }
+}
+
+.expander {
+    &.expander-collapsed {
+        .expander-body {
+            display: none;
+        }
+    }
+
+    &:not(.expander-collapsed) {
+        .expander-collapsed-body {
+            display: none;
+        }
+    }
+}

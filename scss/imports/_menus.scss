@@ -1,0 +1,82 @@
+@use 'config' as *;
+@use "variables";
+
+.menu {
+    display: none;
+    position: absolute;
+    background: variables.$card-bg;
+
+    padding: 10px 0;
+
+    @if $theme == "hitchhiker" {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        border: variables.$form-input-border;
+    }
+
+    @else {
+        border: 1px solid variables.$card-border;
+    }
+
+    min-width: 100px;
+    z-index: 1999;
+    font-weight: normal;
+
+    // hardcode text alignment and direction to left for header menus
+    text-align: left;
+    direction: ltr;
+
+    hr {
+        border-color: variables.$border;
+        margin: 0;
+    }
+
+    .menu-item-button {
+        direction: ltr;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        height: 26px;
+        padding: 0 15px;
+        color: variables.$description-text-color;
+
+        @if $theme == "hitchhiker" {
+            gap: 13.2px; // on actual hitchhiker: 10px with whitespace element
+        } @else {
+            gap: 10px;
+        }
+
+        span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        &.small {
+            font-size: 12px;
+        }
+
+        &:hover {
+            background: #eeeeee;
+            color: variables.$text-color;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        &:active {
+            background: #eeeeee;
+            color: variables.$text-color;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.menu-button {
+    .menu-caret-container {
+        display: inline;
+    }
+}
+
+.menu-upload-edit {
+    direction: rtl;
+    width: 150px;
+}

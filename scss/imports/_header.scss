@@ -1,0 +1,419 @@
+@use 'config' as *;
+@use "variables";
+@use 'mixins/responsiveness';
+
+$masthead-user-pfp: 32px;
+
+@if $theme == "hitchhiker" {
+    $masthead-user-pfp: 27px;
+}
+
+.masthead-user {
+    width: $masthead-user-pfp;
+    height: $masthead-user-pfp;
+    direction: rtl;
+}
+
+#masthead-below {
+    display: none;
+}
+
+#header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @if $theme != "hitchhiker" {
+        gap: 15px;
+    }
+}
+
+#header-user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: auto;
+    text-align: right;
+
+    @if $theme == "hitchhiker" {
+        gap: 20px;
+    } @else {
+        gap: 1em;
+
+        a {
+            color: black;
+        }
+    }
+}
+
+#masthead-container {
+    z-index: 10000;
+    margin: 0;
+    position: sticky;
+    display: block;
+    top: 0;
+    background-color: variables.$masthead-bg;
+    border-bottom: 1px solid variables.$masthead-border;
+
+    @if $theme == "hitchhiker" {
+        padding: 0 30px;
+    } @else {
+        padding: 0 20px 0 10px;
+        backdrop-filter: blur(4px);
+    }
+
+    //padding-top: 8px;
+    //padding-bottom: 7px;
+
+    &.with-fullscreen-banner {
+        top: 35px;
+    }
+}
+
+#masthead {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    @if $theme == "hitchhiker" {
+        max-width: 100%;
+    }
+
+    position: relative;
+    margin: auto;
+    height: variables.$header-height;
+    font-size: 13px;
+
+    @if $theme == "hitchhiker" {
+        #guide-toggle.masthead-button {
+            color: #B8B8B8;
+        }
+
+        &:hover {
+            #guide-toggle.masthead-button {
+                color: #666666;
+            }
+        }
+    }
+
+    #logo-container {
+        position: relative;
+        display: flex;
+
+        @if $theme == "hitchhiker" {
+            width: 200px;
+            height: 30px;
+        } @else {
+            align-items: center;
+            width: 205px; // otherwise 2022 sb logo fucks up the guide button
+            height: 30px;
+
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+
+            @if $theme != "hitchhiker" {
+                height: 30px;
+            }
+        }
+
+        @if $theme == "hitchhiker" {
+            .content-region {
+                position: relative;
+                bottom: 19px;
+                right: 1px;
+                color: variables.$comment-timestamp;
+                font-size: 11px;
+                text-decoration: none;
+                font-weight: normal;
+            }
+        }
+    }
+
+    #logo {
+        height: 30px;
+        border: 0;
+
+        @if $theme == "hitchhiker" {
+            margin-right: 2px;
+        }
+    }
+
+    // kinda hacky
+    .masthead-button {
+        @if $theme == "hitchhiker" {
+            width: 30px;
+            height: 30px;
+            color: #7F7F7F;
+        }
+
+        @else {
+            width: 32px;
+            height: 32px;
+        }
+
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@if $theme == "hitchhiker" {
+    /* this sucks */
+    #guide-toggle {
+        width: 38px !important;
+        height: 30px !important;
+        margin-left: -7px;
+    }
+}
+
+#masthead-search {
+    position: relative;
+
+    display: flex;
+    overflow: hidden;
+
+    align-items: center;
+
+    @if $theme == "hitchhiker" {
+        padding: 0;
+        margin-bottom: 1px;
+    }
+
+    label {
+        height: 100%;
+        line-height: 30px;
+        padding: 0;
+        border: none;
+        overflow: hidden;
+    }
+
+    #search-btn {
+        height: variables.$masthead-search-bar-height;
+
+        @if $theme == "hitchhiker" {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding: 0 25px;
+            color: #969696;
+
+            &:hover,
+            &:focus {
+                color: #555555;
+            }
+        }
+
+        @else {
+            border-radius: 0 3px 3px 0;
+        }
+    }
+
+    #masthead-search-terms {
+        border-radius: 0;
+        height: variables.$masthead-search-bar-height;
+
+        overflow: hidden;
+
+        // TODO: on hitchhiker, the way responsiveness was originally implemented on the header is Very Different
+        // from the rest of the site.
+        //
+        // https://web.archive.org/web/20160610004740/https://www.youtube.com/
+        // -chaziz 5/7/2025
+        @include responsiveness.responsive('tiny') {
+            width: 120px;
+        }
+
+        @include responsiveness.responsive('small') {
+            width: 200px;
+        }
+
+        @include responsiveness.responsive('medium') {
+            width: 560px;
+        }
+
+        @include responsiveness.responsive('large') {
+            width: 583px;
+        }
+
+        input {
+            display: inline-block;
+            width: 100%;
+            padding: 2px 6px;
+            margin: 0;
+            font-size: 16px;
+            box-sizing: border-box;
+            height: variables.$masthead-search-bar-height;
+
+            @if $theme != "hitchhiker" {
+                border: 1px solid variables.$form-input-border;
+                background-color: variables.$form-input;
+                color: variables.$text-color;
+                border-radius: 3px 0 0 3px;
+            }
+
+            border-right: none;
+        }
+    }
+}
+
+.subheader {
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+    @if $theme == "hitchhiker" {
+        background: #333;
+        padding-left: 30px;
+    } @else {
+        background: linear-gradient(#333, #222);
+        padding-left: 10px;
+    }
+
+    .subheader-link {
+        color: #fff;
+        line-height: 40px;
+        padding: 0 10px;
+
+        &:hover {
+            @if $theme == "hitchhiker" {
+                background: #444;
+            } @else {
+                background: linear-gradient(#444, #333);
+            }
+
+            text-decoration: none;
+        }
+
+        &:active, &.selected {
+            @if $theme == "hitchhiker" {
+                background: #666;
+            } @else {
+                background: linear-gradient(#555, #666);
+            }
+
+            text-decoration: none;
+        }
+    }
+}
+
+
+// user menu
+
+.user-menu-button {
+    &:hover {
+        cursor: pointer;
+    }
+
+    @if $theme == "hitchhiker" {
+        .profile-picture {
+            border-radius: 50%;
+        }
+    }
+}
+
+#user-menu {
+    width: 270px;
+    top: variables.$header-height + 1px;
+    right: -5px;
+    position: absolute;
+    display: none;
+
+    // hardcode text alignment and direction to left for header menus
+    text-align: left;
+    direction: ltr;
+
+    background: variables.$menu-bg;
+    border: 1px solid variables.$menu-border;
+    box-shadow: 0 0 15px rgba(black, .18);
+
+    .header {
+        padding: 10px 15px;
+    }
+
+        .info {
+            line-height: 1.3em;
+
+            .name {
+                font-weight: 500;
+                margin-bottom: 1px;
+                min-height: 1.3em;
+            }
+
+            .followers {
+                color: variables.$lightest-gray;
+                margin-bottom: 7px;
+                min-height: 1.3em;
+            }
+
+            .buttons {
+                display: flex;
+                gap: 5px;
+                
+                .button {
+                    height: 24px;
+
+                    &.settings {
+                        padding: 0 4px;
+                    }
+                }
+            }
+        }
+
+    .body {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+
+        .profile-picture {
+            width: 64px;
+            height: 64px;
+
+            @if $theme == "hitchhiker" {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .user-menu-multilogin {
+        max-height: 215px;
+        overflow-y: auto;
+
+        .user-option {
+            display: flex;
+            gap: 9.6px;
+            
+            background: #f5f5f5;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding: 10px 15px;
+
+            &:hover {
+                background: #eee;
+                text-decoration: none;
+            }
+
+            .name {
+                color: #000;
+                font-weight: normal;
+            }
+
+            .profile-picture {
+                width: 36px;
+                height: 36px;
+                
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .user-menu-footer {
+        padding: 10px 15px;
+        background: #f5f5f5;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        text-align: right;
+    }
+}

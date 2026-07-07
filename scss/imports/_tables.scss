@@ -1,0 +1,38 @@
+@use 'config' as *;
+$theme: "default" !default;
+$color-scheme: "light" !default;
+
+@use "variables";
+
+@use "sass:color";
+
+table.styled {
+    border: variables.$border 1px solid;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    tr {
+        &.table-header {
+            text-align: left;
+            background-color: color.adjust(variables.$border, $lightness: 7.5%);
+
+            @if $theme == "hitchhiker" {
+                font-weight: 500;
+            }
+
+            th {
+                padding: 5px;
+                border: variables.$border 1px solid;
+            }           
+        }
+    }
+
+    td {
+        border: variables.$border 1px solid;
+        padding: 5px;
+    }
+}

@@ -1,0 +1,65 @@
+@use 'config' as *;
+@use "variables";
+
+.banner {
+    @if $theme == "hitchhiker" {
+        padding: 9.5px 1em;
+        font-size: 13px;
+        line-height: 1.2;
+        font-weight: 500;
+    }
+
+    @else {
+        padding: 0.5em 1em;
+        border-radius: 3px;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    &.full-screen {
+        height: variables.$fullscreen-banner-height;
+
+        z-index: 10000;
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: center;
+
+        @if $theme != "hitchhiker" {
+            border-radius: 0;
+        }
+    }
+
+    .banner-icon {
+        margin-right: 13px;
+
+        @if $theme == "hitchhiker" {
+            height: 20px;
+        } @else {
+            height: 16px;
+        }
+    }
+}
+
+@each $state, $value in variables.$banner-colors {
+    .banner-#{$state} {
+        @if $theme == "hitchhiker" {
+            background-color: variables.$value;
+        }
+
+        @else {
+            border: 1px solid darken($value, 3.5%);
+            background-color: lighten($value, 1.5%);
+            background-image: linear-gradient(
+                to bottom,
+                lighten($value, 1.5%),
+                darken($value, 1.5%)
+            );
+        }
+
+        color: contrast-color($value);
+    }
+}

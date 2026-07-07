@@ -1,0 +1,369 @@
+@use 'config' as *;
+$theme: "default" !default;
+$color-scheme: "light" !default;
+
+/// Variables \\\
+@use "variables";
+/// Functions \\\
+@use "functions";
+/// Responsiveness \\\
+@use "mixins/responsiveness";
+/// Normalize \\\
+@use "normalize";
+
+/// Grid System \\\
+@use "grid_system";
+/// Tables \\\
+@use "tables";
+/// Containers \\\
+@use "containers";
+/// Images \\\
+@use "images";
+/// Cards \\\
+@use "cards";
+/// Buttons \\\
+@use "buttons";
+/// Navs \\\
+@use "navs";
+/// Banners \\\
+@use "banners";
+/// Tabs \\\
+@use "tabs";
+/// Header \\\
+@use "header";
+/// Guide \\\
+@use "guide";
+/// Footer \\\
+@use "footer";
+/// Comments \\\
+@use "comments";
+/// Badges \\\
+@use "badges";
+/// Menus \\\
+@use "menus";
+/// Tooltips \\\
+@use "tooltips";
+/// Dialogs \\\
+@use "dialogs";
+/// SPF Progress Bar \\\
+@use "spf_progress_bar";
+/// Expander \\\
+@use "expander";
+/// Icons \\\
+@use "icons";
+/// Forms and Inputs \\\
+@use "forms_and_inputs";
+
+/// Watch page \\\
+@use "watch_page";
+/// Upload lists \\\
+@use "upload_list";
+/// Login page \\\
+@use "login_page";
+/// Members page \\\
+@use "members_page";
+/// Profile page \\\
+@use "profile";
+/// Creator Studio \\\
+@use "creator_studio";
+
+@if $theme != "hitchhiker" {
+    // roboto variable
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+@if $theme == "hitchhiker" {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+}
+
+/* SB CSS STARTS HERE ======================================================== */
+
+html {
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+@if $theme == "hitchhiker" {
+
+    strong,
+    b {
+        font-weight: 500;
+    }
+
+    h1,
+    h2 {
+        font-weight: normal
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 500
+    }
+}
+
+@else {
+
+    h1,
+    h2,
+    h3 {
+        font-weight: 400;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-weight: 300;
+    }
+}
+
+h1 {
+    font-size: 20px
+}
+
+h2 {
+    font-size: 16px
+}
+
+h3,
+h4 {
+    font-size: 13px
+}
+
+h5,
+h6 {
+    font-size: 10px
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid variables.$border;
+    height: 0;
+    margin: 10px 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+a {
+    color: variables.$primary;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+    }
+}
+
+menu {
+    list-style: none;
+}
+
+code {
+    color: #b03030;
+    background-color: #fff0f0;
+    border: 1px solid #e8c8c8;
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+pre {
+    color: #b03030;
+    background-color: #fff0f0;
+    border: 1px solid #e8c8c8;
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin: 0;
+    overflow-x: auto;
+    line-height: 1.5;
+    white-space: pre-wrap;
+
+    code {
+        color: inherit;
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: inherit;
+        font-weight: inherit;
+        border-radius: 0;
+    }
+}
+
+blockquote {
+    margin: 0 0 0.5em 0;
+    padding-left: 0.8em;
+    border-left: 4px solid variables.$border;
+}
+
+// Pagination \\
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/// Generic text aligns \\\
+.left {
+    text-align: left;
+
+    &:dir(rtl) {
+        text-align: right;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+
+    &:dir(rtl) {
+        text-align: left;
+    }
+}
+
+.float-left {
+    float: left;
+
+    &:dir(rtl) {
+        float: right;
+    }
+}
+
+.float-right {
+    float: right;
+
+    &:dir(rtl) {
+        float: left;
+    }
+}
+
+.jumbotron {
+    background: #3e3e3e;
+    background: linear-gradient(90deg, rgb(62, 62, 62) 0%, rgb(107, 107, 107) 35%, rgb(155, 155, 155) 100%);
+    background-size: cover;
+
+    color: white;
+    margin: -49px 0 0;
+    padding-top: 49px;
+
+    display: flex;
+    align-content: center;
+
+    width: 100%;
+    height: 190px;
+
+    .profile-picture {
+        width: 100px;
+    }
+
+    .container {
+        margin: auto;
+        display: flex;
+        min-height: auto;
+        @include responsiveness.maxwidths();
+
+        h1, h2, h3, h4, h5, h6, p {
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        h3 {
+            font-size: 15.21px;
+        }
+
+        .stats {
+            font-size: 1.25em;
+            text-align: right;
+        }
+
+        &.logged-in {
+            .jumbotron-left {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1em;
+                flex-grow: 1;
+            }
+
+            .jumbotron-right {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+        }
+
+        &.logged-out {
+            align-items: center;
+
+            .jumbotron-left {
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+            }
+
+            .jumbotron-right {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+body {
+    background: variables.$body-bg;
+    color: variables.$text-color;
+    font-family: variables.$font;
+    padding:0;
+    margin: 0;
+    width: 100%;
+    font-size: 13px;
+
+    @if $theme == "hitchhiker" {
+        // in the actual hitchhiker css its initially defined as 12px but then gets redefined as 13px.
+        //font-size: 12px;
+        line-height: normal;
+    }
+
+    @else {
+        line-height: 1.4;
+    }
+}
+
+#page {
+    padding-bottom: 195px;
+}
+
+.emoji {
+    display: inline;
+    width: 24px;
+    vertical-align: middle;
+}
+
+.journal {
+    margin-bottom: 1em;
+
+    @if $theme == "hitchhiker" {
+        margin-left: 5px;
+    }
+}

@@ -1,0 +1,22 @@
+@use 'config' as *;
+
+@use "variables";
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+.profile-picture {
+    @if $theme == "hitchhiker" {
+        background: #f1f1f1;
+    } @else {
+        border-radius: 50%;
+    }
+}
+
+.img-center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
