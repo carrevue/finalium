@@ -68,6 +68,7 @@
                         {% else %}
                             <h1 class="shelf-title">{{ shelf.title }}</h1> 
                         {% endif %}
+                        {% if shelf.author %}<span class="shelf-label">by <b>{{ shelf.author.displayname }}</b></span>{% endif %}
                         {% if shelf.label %}<span class="shelf-label">{{ shelf.label }}</span>{% endif %}
                     </div>
                     {% if shelf.desc %}<div class="shelf-description">{{ shelf.desc }}</div>{% endif %}

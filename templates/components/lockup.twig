@@ -36,28 +36,3 @@
         </div>
     </div>
 </div>
-{#<div class="upload-list-item">
-    <div class="thumbnail">
-        {% if upload.type == 0 %}
-            <div class="thumbnail-badge-container">
-                <div class="thumbnail-badge">
-                    {{ convert_time(upload.length) }}
-                </div>
-            </div>
-        {% endif %}
-        <a href="/watch?v={{ upload.id }}" class="spf-link">
-            <img src="{{ thumbnail(upload.id, upload.type, upload.flags.custom_thumbnail) }}" alt="{{ upload.title }}">
-        </a>
-    </div>
-    <div class="content-wrapper">
-        <h3 class="title"><a href="/watch?v={{ upload.id }}" class="spf-link">{{ upload.title }}</a></h3>
-        <div class="byline">{{ user_link(upload.author) }}</div>
-        <div class="meta">{{ time | relative_time }} • {{ localize('views', upload.views) }}</div>
-        {% if upload.description|trim is not empty %}
-        <div class="description">{{ upload.description | markdown_user_written }}</div>
-        {% endif %}
-        {% if upload.type == 2 %}
-        <span><div class="badge">Image</div></span>
-        {% endif %}
-    </div>
-</div>#}
