@@ -78,7 +78,7 @@
         }
     }
 
-    .card-has-padding {
+    .card.has-padding {
         margin: auto;
 
         @if $theme == "hitchhiker" {

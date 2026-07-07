@@ -3,7 +3,7 @@
 {% set title = localize('search_results_for', data.query) %}
 
 	{% block content %}
-        <div class="card card-has-padding">
+        <div class="card results">
             {% for upload in data.uploads %}
                 {% include "components/lockup.twig" with { 
                     type: "tile",

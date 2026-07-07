@@ -27,14 +27,12 @@
 }
 
 // slightly ugly but i dont care
-.card.channel-header {
-    .card-has-padding {
-        padding-bottom: 0;
+.card.has-padding.channel-header {
+    padding-bottom: 0;
 
-        h1 {
-            color: $description-text-color;
-            font-weight: 500;
-        }
+    h1 {
+        color: $description-text-color;
+        font-weight: 500;
     }
 }
 

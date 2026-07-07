@@ -14,6 +14,18 @@
 
 	{% block content %}
         <div class="grid">
+            <div class="col-9">
+                <div class="card results">
+                    {% for upload in data.uploads %}
+                        {% include "components/lockup.twig" with { 
+                            type: "tile",
+                        } %}
+                    {% else %}
+                        There are no uploads.
+                    {% endfor %}
+                    {{ pagination(data.count, items_per_page, le_url, page) }}
+                </div>
+            </div>
             <div class="col-3">
                 <div class="card">
                     <ul class="nav">
@@ -24,18 +36,6 @@
                             </li>
                         {% endfor %}
                     </ul>
-                </div>
-            </div>
-            <div class="col-9">
-                <div class="card card-has-padding">
-                    {% for upload in data.uploads %}
-                        {% include "components/lockup.twig" with { 
-                            type: "tile",
-                        } %}
-                    {% else %}
-                        There are no uploads.
-                    {% endfor %}
-                    {{ pagination(data.count, items_per_page, le_url, page) }}
                 </div>
             </div>
         </div>

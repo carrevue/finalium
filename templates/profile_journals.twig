@@ -12,14 +12,12 @@
 {% set current_page = page %}
 
 {% block profile_content %}
-    <div class="card">
-        <div class="card-has-padding">
-            {% for journal in journals %}
-                {% include "components/journal.twig" %}
-            {% else %}
-                <p>No journals.</p>
-            {% endfor %}
-        </div>
+    <div class="card has-padding">
+        {% for journal in journals %}
+            {% include "components/journal.twig" %}
+        {% else %}
+            <p>No journals.</p>
+        {% endfor %}
 
         {% set le_url = '/user/' ~ user ~ '/journals?page=%s' %}
 

@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="col-4">
-            <div class="card card-has-padding">
+            <div class="card has-padding">
                 <h3>{{ localize('staff') }}</h3>
                 {# temporary design #}
                 {% for user in data.staff|sort((a, b) => b.level <=> a.level) %}

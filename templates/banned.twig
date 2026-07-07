@@ -4,7 +4,7 @@
 
 {% block content %}
     {% if current_theme == 'hitchhiker' %}<h1>{{ localize('ban_title') }}</h1>{% endif %}
-    <div class="card card-has-padding">
+    <div class="card has-padding">
         {% if current_theme != 'hitchhiker' %}<h1>{{ localize('ban_title') }}</h1>{% endif %}
         <p>{{ localize('ban_intro_1', user_data.name) }}</p>
         <p>{{ localize('ban_intro_2', '/tos', '/guidelines') | raw }}</p>

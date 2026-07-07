@@ -6,26 +6,24 @@
 
 	{% block creatorcontent %}
         <h1>{{ localize('uploads') }} ({{ data.count }})</h1>
-        <div class="card">
-            <div class="card-has-padding">
-                {% for upload in data.uploads %}
-                    {% include "components/lockup.twig" with { 
-                        type: "tile",
-                    } %}
-                    <a class="button button-default" href="/edit?v={{ upload.id }}">
-                        <span>{{ localize('edit') }}</span>
-                    </a>
-                    <a class="button button-destructive" href="/delete?v={{ upload.id }}"
-                       onclick="return confirm('{{ localize('delete_upload_confirm') }}');">
-                        <span>{{ localize('delete') }}</span>
-                    </a>
-                    <hr>
-                {% else %}
-                    <div class="banner banner-error" role="alert">You have no uploads!</div>
-                {% endfor %}
+        <div class="card has-padding">
+            {% for upload in data.uploads %}
+                {% include "components/lockup.twig" with { 
+                    type: "tile",
+                } %}
+                <a class="button button-default" href="/edit?v={{ upload.id }}">
+                    <span>{{ localize('edit') }}</span>
+                </a>
+                <a class="button button-destructive" href="/delete?v={{ upload.id }}"
+                    onclick="return confirm('{{ localize('delete_upload_confirm') }}');">
+                    <span>{{ localize('delete') }}</span>
+                </a>
+                <hr>
+            {% else %}
+                <div class="banner banner-error" role="alert">You have no uploads!</div>
+            {% endfor %}
 
-                {% set le_url = 'my_uploads?page=%s' %}
-                <div class="center">{{ pagination(data.count, items_per_page, le_url, page) }}</div>
-            </div>
+            {% set le_url = 'my_uploads?page=%s' %}
+            <div class="center">{{ pagination(data.count, items_per_page, le_url, page) }}</div>
         </div>
     {% endblock %}

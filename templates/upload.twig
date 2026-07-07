@@ -7,39 +7,37 @@
     {% endif %}
 
     <form name="uploadForm" id="uploadForm" method="post" action="upload" enctype="multipart/form-data">
-        <div class="card">
-            <div class="card-has-padding">
-                <h2>{{ localize('new_upload') }}</h2>
-                <p>{{ localize('new_upload_intro', '/guidelines') | raw }}</p>
+        <div class="card has-padding">
+            <h2>{{ localize('new_upload') }}</h2>
+            <p>{{ localize('new_upload_intro', '/guidelines') | raw }}</p>
 
-                {% if current_theme != 'hitchhiker' %}
-                    <p class="reupload-warning">{{ localize('reupload_warning') }}</p>
-                {% endif %}
+            {% if current_theme != 'hitchhiker' %}
+                <p class="reupload-warning">{{ localize('reupload_warning') }}</p>
+            {% endif %}
 
-                <div class="form-content">
-                    <div class="input">
-                        <input type="text" class="form-control form-long" id="title" name="title" placeholder="{{ localize('title') }} ({{ localize('form_required') }})" required>
-                    </div>
-
-                    <div class="input">
-                        <textarea class="form-control form-long" id="desc" name="desc" maxlength="65535" form="uploadForm" rows="3" placeholder="{{ localize('description') }} ({{ localize('form_optional') }})"></textarea>
-                    </div>
-
-                    <div class="input">
-                        <input type="text" class="form-control form-long" id="tags" name="tags" placeholder="{{ localize('tags') }} ({{ localize('form_optional') }})">
-                    </div>
-
-                    <div class="input">
-                        <label for="fileToUpload">{{ localize('file') }} ({{ localize('form_required') }})</label>
-                        <input class="form-control" type="file" name="fileToUpload" id="fileToUpload" required>
-                    </div>
-
-                     <p>{{ localize('upload_limit', limit) }}</p>
+            <div class="form-content">
+                <div class="input">
+                    <input type="text" class="form-control form-long" id="title" name="title" placeholder="{{ localize('title') }} ({{ localize('form_required') }})" required>
                 </div>
 
-                <div class="right">
-                    <input class="button button-primary" type="submit" id="upload" name="upload" value="{{ localize('upload_action') }}">
+                <div class="input">
+                    <textarea class="form-control form-long" id="desc" name="desc" maxlength="65535" form="uploadForm" rows="3" placeholder="{{ localize('description') }} ({{ localize('form_optional') }})"></textarea>
                 </div>
+
+                <div class="input">
+                    <input type="text" class="form-control form-long" id="tags" name="tags" placeholder="{{ localize('tags') }} ({{ localize('form_optional') }})">
+                </div>
+
+                <div class="input">
+                    <label for="fileToUpload">{{ localize('file') }} ({{ localize('form_required') }})</label>
+                    <input class="form-control" type="file" name="fileToUpload" id="fileToUpload" required>
+                </div>
+
+                    <p>{{ localize('upload_limit', limit) }}</p>
+            </div>
+
+            <div class="right">
+                <input class="button button-primary" type="submit" id="upload" name="upload" value="{{ localize('upload_action') }}">
             </div>
         </div>
     </form>
