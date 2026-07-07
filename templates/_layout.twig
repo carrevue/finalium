@@ -12,7 +12,7 @@
     {% set logo = website_branding.assets_location ~ '/' ~ logo_type ~ logo_suffix ~ logo_extension %}
 {% endif %}
 
-{% if current_theme == "hitchhiker" %}
+{% if skin_theme_options.finalium_hitchhiker_icons %}
     {% set account_settings_button_icon_size = 20 %}
     {% set alert_icon_size = 20 %}
     {% set username_verified_icon = [12,9] %}

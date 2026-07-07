@@ -79,7 +79,7 @@ $button-padding: 7px 12px;
             border: 1px solid darken($value, 1%);
         }
 
-        color: contrast-color($value);
+        color: functions.contrast-color($value);
     }
 
     &:active, &.toggled {
@@ -108,7 +108,7 @@ $button-padding: 7px 12px;
             );
         }
 
-        color: contrast-color($value);
+        color: functions.contrast-color($value);
     }
 
     // TODO: toggled hover/active
@@ -117,7 +117,7 @@ $button-padding: 7px 12px;
         border: 1px solid #0000;
         background: none;
         box-shadow: none;
-        color: contrast-color($value);
+        color: functions.contrast-color($value);
 
         &:hover {
             @if $theme != "hitchhiker" {

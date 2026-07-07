@@ -61,6 +61,6 @@
             );
         }
 
-        color: contrast-color($value);
+        color: functions.contrast-color($value);
     }
 }

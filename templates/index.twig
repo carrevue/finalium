@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block precontent %}
-    {% if current_theme != 'hitchhiker' %}
+    {% if skin_theme_options.finalium_display_jumbotron %}
         <div class="jumbotron">
             <div class="container {% if logged_in %}logged-in{% else %}logged-out{% endif %}">
                 {% if logged_in %}

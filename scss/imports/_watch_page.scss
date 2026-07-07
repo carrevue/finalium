@@ -119,14 +119,14 @@
     @include button-opacity();
 }
 
-.watch-creator-bar {
+.card.watch-creator-bar {
     display: flex;
     .watch-creator-bar-left {
         flex-grow: 1;
     }
 }
 
-.watch-header {
+.card.watch-header {
     h1 {
         font-size: 20px;
     }

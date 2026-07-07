@@ -9,18 +9,32 @@
             "default": {
                 "name": "Light",
                 "description": "The classic look of squareBracket from 2022.",
-                "author": "Carrevue Development"
-            },
-            "dark": {
-                "name": "Dark",
-                "description": "The classic dark look of squareBracket, which is a little unpolished.",
-                "author": "Carrevue Development"
+                "author": "Carrevue Development",
+                "options": {
+                    "finalium_display_jumbotron": true
+                }
             },
             "hitchhiker": {
-                "name": "Hitchhiker",
+                "name": "Hitchhiker - 2016",
                 "description": "Emulates the look of a popular video sharing site as seen around 2016.",
                 "author": "Carrevue Development",
                 "options": {
+                    "fulptube_branding": true,
+                    "finalium_hitchhiker_icons": true,
+                    "storage": {
+                        "default_pfp_override": "profiledef_hitchhiker.svg",
+                        "default_video_thumbnail_override": "placeholder_hitchhiker.svg",
+                        "default_image_thumbnail_override": "placeholder_hitchhiker.svg"
+                    }
+                }
+            },
+            "test": {
+                "name": "Test",
+                "author": "Carrevue Development",
+                "incomplete": true,
+                "options": {
+                    "fulptube_branding": true,
+                    "finalium_hitchhiker_icons": true,
                     "storage": {
                         "default_pfp_override": "profiledef_hitchhiker.svg",
                         "default_video_thumbnail_override": "placeholder_hitchhiker.svg",
