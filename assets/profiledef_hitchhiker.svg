@@ -1,12 +1,1 @@
-<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1_27)">
-<rect width="48" height="48" fill="#A0C3FF"/>
-<circle cx="24" cy="18.4729" r="8.84075" fill="#4374E0"/>
-<path d="M8.97368 44.5043C8.97368 40.3141 8.97368 37.523 9.74281 35.8716C10.7573 33.6935 12.6928 32.6581 15.1278 31.7506C16.9738 31.0626 19.3159 30.4108 24 30.4108C28.6841 30.4108 31.0262 31.0626 32.8722 31.7506C35.3072 32.6581 37.2427 33.6935 38.2572 35.8716C39.0263 37.523 39.0263 40.3141 39.0263 44.5043V49.1382C39.0263 53.8523 39.0263 56.2093 37.5619 57.6738C36.0974 59.1383 33.7404 59.1383 29.0263 59.1383H18.9737C14.2596 59.1383 11.9026 59.1383 10.4381 57.6738C8.97368 56.2093 8.97368 53.8523 8.97368 49.1383V44.5043Z" fill="#4374E0"/>
-</g>
-<defs>
-<clipPath id="clip0_1_27">
-<rect width="48" height="48" fill="white"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none"><g clip-path="url(#a)"><path fill="#A0C3FF" d="M0 0h48v48H0z"/><g filter="url(#b)"><path fill="#4374E0" d="M24 30.37c6.58 0 15 2.66 15 7.63v12H9V38c0-4.97 8.42-7.63 15-7.63m0-20.705a8.88 8.88 0 1 1 0 17.757 8.88 8.88 0 1 1 0-17.757"/></g></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h48v48H0z"/></clipPath><filter id="b" width="34" height="44.335" x="7" y="7.665" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" result="hardAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/><feOffset/><feGaussianBlur stdDeviation="1"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/><feBlend in2="BackgroundImageFix" result="effect1_dropShadow_4_72"/><feBlend in="SourceGraphic" in2="effect1_dropShadow_4_72" result="shape"/></filter></defs></svg>

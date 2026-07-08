@@ -16,7 +16,7 @@
         {% for journal in journals %}
             {% include "components/journal.twig" %}
         {% else %}
-            <p>No journals.</p>
+            <p class="display-message">This channel has no journals.</p>
         {% endfor %}
 
         {% set le_url = '/user/' ~ user ~ '/journals?page=%s' %}

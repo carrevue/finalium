@@ -9,7 +9,7 @@
 {% set selected_tab = "home" %}
 
 {% block profile_content %}
-    <div class="card has-padding results">
+    <div class="card">
         {% if data.featured_upload %}
             <div class="profile-featured-upload">
                 <div class="upload-container">
@@ -25,10 +25,10 @@
         {% endif %}
         {% for upload in data.uploads %}
             {% include "components/lockup.twig" with { 
-                type: "tile",
+                type: "grid",
             } %}
         {% else %}
-            <p>There are currently no uploads by {{ common.displayname }}</p>
+            <p class="display-message">This channel doesn't have any content.</p>
         {% endfor %}
     </div>
 {% endblock %}

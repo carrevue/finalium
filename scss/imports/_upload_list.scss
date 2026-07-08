@@ -12,7 +12,7 @@ $thumbnail-background: #F0F0F0;
 .shelf-channels-browse {
     display: grid;
     grid-auto-columns: minmax(196px, 196px);
-    grid-template-columns: repeat(auto-fit, minmax(196px, 1fr));
+    grid-template-columns: repeat(auto-fill, 196px);
     gap: 20px 10px;
 
     padding: 15px 15px 0 15px;

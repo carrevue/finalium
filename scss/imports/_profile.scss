@@ -2,6 +2,16 @@
 @use "variables";
 @use 'mixins/responsiveness';
 
+.display-message {
+    margin: 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    color: variables.$comment-timestamp;
+    padding: 25px 15px;
+    line-height: 1.5;
+}
+
 .channel-header-background {
     @if $theme == "hitchhiker" {
         background-color: #333;
@@ -10,10 +20,12 @@
     }
     border-bottom: 1px solid variables.$border;
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    height: 176px;
+    background-size: auto 100%;
+    background-position: center center;
+}
 
+.content-snap-width-3 .channel-header-background {
     height: 210px;
 }
 

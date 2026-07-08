@@ -21,16 +21,18 @@
     <div class="card">
         <p>here shall lie the sort buttons...</p>
         <hr>
-        <div class="shelf-channels-browse">
-            {% for upload in data.uploads %}
-                {% include "components/lockup.twig" with { 
-                    type: "grid",
-                    channels_browse: true,
-                } %}
-            {% else %}
-                <p>There are currently no uploads by {{ data.displayname }}</p>
-            {% endfor %}
-        </div>
+        {% if data.uploads is empty %}
+            <p class="display-message">This channel has no uploads.</p>
+        {% else %}
+            <div class="shelf-channels-browse">
+                {% for upload in data.uploads %}
+                    {% include "components/lockup.twig" with { 
+                        type: "grid",
+                        channels_browse: true,
+                    } %}
+                {% endfor %}
+            </div>
+        {% endif %}
         {{ pagination(data.count, items_per_page, le_url, current_page) }}
     </div>
 {% endblock %}

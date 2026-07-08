@@ -23,6 +23,16 @@
                 background-image: url('{{ banner_picture.finalium_2x }}');
             }
         }
+        
+        {# 
+            if the user doesn't have a banner, but has set their non-hitchhiker username color, use that as the background.
+            this loosely replicates functionality youtube had in hitchhiker for profiles with legacy video pfps.
+         #}
+        {% if current_theme == "hitchhiker" and common.color not in ['#3399cc', '#523bb8', '#0069B4'] %}
+            .channel-header-background {
+                background-color: {{ common.color }};
+            }
+        {% endif %}
     {% endif %}
 {% endblock %}
 
