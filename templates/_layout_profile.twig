@@ -61,8 +61,12 @@
         <div class="channel-header-secondary">
             <a class="tablink{% if selected_tab == 'home' %} active{% endif %}" 
                 href="/user/{{ common.username }}">Home</a>
-            <a class="tablink{% if selected_tab == 'uploads' %} active{% endif %}" 
-                href="/user/{{ common.username }}/uploads">Uploads</a>
+            {#<a class="tablink{% if selected_tab == 'uploads' %} active{% endif %}" 
+                href="/user/{{ common.username }}/uploads">Uploads</a>#}
+            <a class="tablink{% if selected_tab == 'videos' %} active{% endif %}" 
+                href="/user/{{ common.username }}/videos">Videos</a>
+            <a class="tablink{% if selected_tab == 'images' %} active{% endif %}" 
+                href="/user/{{ common.username }}/images">Images</a>
             <a class="tablink{% if selected_tab == 'journals' %} active{% endif %}" 
                 href="/user/{{ common.username }}/journals">Journals</a>
             <a class="tablink{% if selected_tab == 'comments' %} active{% endif %}" 

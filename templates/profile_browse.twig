@@ -10,12 +10,12 @@
 {% set current_page = page %}
 
 {% if type == 'recent' %}
-    {% set le_url = 'user/' ~ common.username ~ '/uploads?page=%s' %}
+    {% set le_url = 'user/' ~ common.username ~ '/' ~ page_path ~ '?page=%s' %}
 {% else %}
-    {% set le_url = 'user/' ~ common.username ~ '/uploads?type=' ~ type ~ '&page=%s' %}
+    {% set le_url = 'user/' ~ common.username ~ '/' ~ page_path ~ '?type=' ~ type ~ '&page=%s' %}
 {% endif %}
 
-{% set selected_tab = "uploads" %}
+{% set selected_tab = page_path %}
 
 {% block profile_content %}
     <div class="card">
