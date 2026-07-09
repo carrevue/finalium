@@ -28,6 +28,25 @@ $masthead-user-pfp: 32px;
     }
 }
 
+#header-signin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-left: auto;
+    text-align: right;
+
+    @if $theme == "hitchhiker" {
+        gap: 15px;
+    } @else {
+        gap: 1em;
+
+        a {
+            color: black;
+        }
+    }
+}
+
 #header-user {
     display: flex;
     align-items: center;
@@ -71,6 +90,15 @@ $masthead-user-pfp: 32px;
     }
 }
 
+// ugly!
+@if $theme == "hitchhiker" and era-before('2016') {
+    .show-guide #masthead #guide-toggle.masthead-button, 
+    .show-guide #masthead:hover #guide-toggle.masthead-button, 
+    .show-guide #masthead #guide-toggle.masthead-button:hover {
+        color: #e63127;
+    }
+}
+
 #masthead {
     display: flex;
     align-items: center;
@@ -101,27 +129,27 @@ $masthead-user-pfp: 32px;
     #logo-container {
         position: relative;
         display: flex;
+        align-items: center;
 
         @if $theme == "hitchhiker" {
             width: 200px;
             height: 30px;
         } @else {
-            align-items: center;
             width: 205px; // otherwise 2022 sb logo fucks up the guide button
             height: 30px;
-
         }
 
         a {
             display: block;
             text-decoration: none;
-
-            @if $theme != "hitchhiker" {
-                height: 30px;
-            }
+            height: 30px;
         }
 
         @if $theme == "hitchhiker" {
+            @if era-before('2016') {
+                margin-top: 3px;
+            }
+
             .content-region {
                 position: relative;
                 bottom: 19px;
@@ -168,12 +196,14 @@ $masthead-user-pfp: 32px;
     #guide-toggle {
         // before 2016 (err, october 2015), the guide toggle button was on the right
         @if era-after('2015') {
-            width: 46px !important;
-            height: 28px !important;
+            width: 38px !important;
+            height: 30px !important;
             margin-left: -7px;
         } @else {
+            width: 46px !important;
+            height: 28px !important;
+
             order: 1;
-            margin-left: 3.2px;
         }
     }
 }

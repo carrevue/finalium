@@ -31,19 +31,15 @@
                 <button id="search-btn" class="button button-default">{{ icon(fi.masthead_search, 15) }}</button>
             </form>
         </div>
-        <div id="header-user">
-            {% if skin_theme_options.finalium_header_upload_button_icon %}
-                {% if logged_in %}
+        {% if logged_in %}
+            <div id="header-user">
+                {% if skin_theme_options.finalium_header_upload_button_icon %}
                     <a class="button button-default-invis masthead-button uix-tooltip" title="{{ localize('new_upload') }}" href="/upload">{{ icon(fi.masthead_upload, masthead_button_icon_size) }}</a>
                     <a class="button button-default-invis masthead-button" href="/notifications">{{ icon(fi.masthead_bell, masthead_button_icon_size) }}</a>
-                {% endif %}
-            {% else %}
-                <a href="/upload" class="button button-default">{{ localize('new_upload') }}</a>
-                {% if logged_in %}
+                {% else %}
+                    <a href="/upload" class="button button-default">{{ localize('new_upload') }}</a>
                     <a class="button button-default-invis masthead-button" href="/notifications">{{ icon(fi.masthead_bell, masthead_button_icon_size) }}</a>
                 {% endif %}
-            {% endif %}
-            {% if logged_in %}
                 <div id="masthead-loggedin" class="masthead-user">
                     <div class="menu-button user-menu-button" data-menu-id="user-menu">
                         <img class="profile-picture img-fluid" src="{{ profile_picture(user_data.id) }}" alt="{{ user_data.name }}">
@@ -79,13 +75,21 @@
                         </div>
                     </div>
                 </div>
-            {% else %}
+            </div>
+        {% else %}
+            <div id="header-signin">
                 {% if skin_theme_options.finalium_header.hitchhiker %}
+                    {% if skin_theme_options.finalium_header_upload_button_icon %}
+                        <a class="button button-default-invis masthead-button uix-tooltip" title="{{ localize('new_upload') }}" href="/upload">{{ icon(fi.masthead_upload, masthead_button_icon_size) }}</a>
+                    {% else %}
+                        <a href="/upload" class="button button-default">{{ localize('new_upload') }}</a>
+                    {% endif %}
                     <a href="/login" class="button button-primary">{{ localize('login') }}</a>
                 {% else %}
                     <a href="/login">{{ localize('login') }}</a>
+                    <a href="/register">{{ localize('register') }}</a>
                 {% endif %}
-            {% endif %}
-        </div>
+            </div>
+        {% endif %}
     </div>
 </div>
