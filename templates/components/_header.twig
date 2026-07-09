@@ -18,7 +18,7 @@
                     <img id="logo" src="{{ logo }}" alt="{{ website_branding.name }}">
                     {% if options.finalium_enable_spf %}
                         <span class="content-region" style="color:red;">SPF</span>
-                    {% elseif country_code is defined and country_code|trim != '' and country_code != 'US' and current_theme == 'hitchhiker' %}
+                    {% elseif country_code is defined and country_code|trim != '' and country_code != 'US' and skin_theme_options.finalium_header.hitchhiker %}
                         <span class="content-region">{{ country_code }}</span>
                     {% endif %}
                     {% endapply %}
@@ -26,20 +26,20 @@
             </div>
             <form id="masthead-search" action="/search">
                 <div id="masthead-search-terms">
-                    <label><input type="text" name="query" placeholder="{{ localize('search') }}"></label>
+                    <label><input type="text" name="query" {% if not skin_theme_options.finalium_header.hide_search_placeholder %}placeholder="{{ localize('search') }}"{% endif %}></label>
                 </div>
                 <button id="search-btn" class="button button-default">{{ icon(fi.masthead_search, 15) }}</button>
             </form>
         </div>
         <div id="header-user">
-            {% if current_theme == 'hitchhiker' %}
-                <a href="/upload" class="button button-default">{{ localize('new_upload') }}</a>
+            {% if skin_theme_options.finalium_header_upload_button_icon %}
                 {% if logged_in %}
+                    <a class="button button-default-invis masthead-button uix-tooltip" title="{{ localize('new_upload') }}" href="/upload">{{ icon(fi.masthead_upload, masthead_button_icon_size) }}</a>
                     <a class="button button-default-invis masthead-button" href="/notifications">{{ icon(fi.masthead_bell, masthead_button_icon_size) }}</a>
                 {% endif %}
             {% else %}
+                <a href="/upload" class="button button-default">{{ localize('new_upload') }}</a>
                 {% if logged_in %}
-                    <a class="button button-default-invis masthead-button uix-tooltip" title="{{ localize('new_upload') }}" href="/upload">{{ icon(fi.masthead_upload, masthead_button_icon_size) }}</a>
                     <a class="button button-default-invis masthead-button" href="/notifications">{{ icon(fi.masthead_bell, masthead_button_icon_size) }}</a>
                 {% endif %}
             {% endif %}
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             {% else %}
-                {% if current_theme == 'hitchhiker' %}
+                {% if skin_theme_options.finalium_header.hitchhiker %}
                     <a href="/login" class="button button-primary">{{ localize('login') }}</a>
                 {% else %}
                     <a href="/login">{{ localize('login') }}</a>

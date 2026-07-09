@@ -166,9 +166,15 @@ $masthead-user-pfp: 32px;
 @if $theme == "hitchhiker" {
     /* this sucks */
     #guide-toggle {
-        width: 38px !important;
-        height: 30px !important;
-        margin-left: -7px;
+        // before 2016 (err, october 2015), the guide toggle button was on the right
+        @if era-after('2015') {
+            width: 46px !important;
+            height: 28px !important;
+            margin-left: -7px;
+        } @else {
+            order: 1;
+            margin-left: 3.2px;
+        }
     }
 }
 

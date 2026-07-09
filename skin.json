@@ -11,7 +11,8 @@
                 "description": "The classic look of squareBracket from 2022.",
                 "author": "Carrevue Development",
                 "options": {
-                    "finalium_display_jumbotron": true
+                    "finalium_display_jumbotron": true,
+                    "finalium_header_upload_button_icon": true
                 }
             },
             "hitchhiker": {
@@ -21,10 +22,35 @@
                 "options": {
                     "fulptube_branding": true,
                     "finalium_hitchhiker_icons": true,
+                    "finalium_use_hitchhiker_banner": true,
+                    "userlink_disable_colors": true,
+                    "finalium_header": {
+                        "hitchhiker": true
+                    },
+                    "finalium_icons": {
+                        "use_hitchhiker_icons": true
+                    },
+                    "localization": {
+                        "hitchhiker_strings": true
+                    },
                     "storage": {
                         "default_pfp_override": "profiledef_hitchhiker.svg",
                         "default_video_thumbnail_override": "placeholder_hitchhiker.svg",
                         "default_image_thumbnail_override": "placeholder_hitchhiker.svg"
+                    }
+                }
+            },
+            "hitchhiker_2015": {
+                "name": "Hitchhiker - 2015",
+                "description": "Emulates the look of a popular video sharing site as seen around 2015.",
+                "author": "Carrevue Development",
+                "options": {
+                    "inherit": "hitchhiker",
+                    "finalium_header": {
+                        "hide_search_placeholder": true
+                    },
+                    "finalium_icons": {
+                        "watch_old_share_icon": true
                     }
                 }
             },

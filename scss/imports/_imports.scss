@@ -1,6 +1,7 @@
 @use 'config' as *;
 $theme: "default" !default;
 $color-scheme: "light" !default;
+$era: "2016" !default;
 
 /// Variables \\\
 @use "variables";

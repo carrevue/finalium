@@ -6,5 +6,32 @@
 // around when the old implementation still works? who the fuck thought this was a
 // good idea? -chaziz 05/10/2026
 
+@use "sass:map";
+
 $theme: "default" !default;
 $color-scheme: "light" !default;
+$era: "2016" !default;
+
+$era_order: (
+  '2015': 1,
+  '2016': 2,
+);
+
+@function era-order($era) {
+  @return map.get($era_order, $era);
+}
+
+@function era-before($era1) {
+  @return era-order($era1) > era-order($era);
+}
+
+@function era-after($era1) {
+  @return era-order($era1) < era-order($era);
+}
+
+@function era-between($start, $end) {
+  $current_order: era-order($era);
+  $start_order: era-order($start);
+  $end_order: era-order($end);
+  @return $current_order >= $start_order and $current_order <= $end_order;
+}

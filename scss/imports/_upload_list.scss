@@ -54,6 +54,10 @@ $thumbnail-background: #F0F0F0;
             font-size: 12px;
             padding-left: 5px;
             color: variables.$lightest-gray;
+
+            a {
+                color: variables.$description-text-color;
+            }
         }
     }
 
