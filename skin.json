@@ -21,7 +21,6 @@
                 "author": "Carrevue Development",
                 "options": {
                     "fulptube_branding": true,
-                    "finalium_hitchhiker_icons": true,
                     "finalium_use_hitchhiker_banner": true,
                     "userlink_disable_colors": true,
                     "finalium_header": {
@@ -50,7 +49,7 @@
                         "hide_search_placeholder": true
                     },
                     "finalium_icons": {
-                        "watch_old_share_icon": true
+                        "hitchhiker_watch_old_share_icon": true
                     }
                 }
             },
@@ -60,7 +59,9 @@
                 "incomplete": true,
                 "options": {
                     "fulptube_branding": true,
-                    "finalium_hitchhiker_icons": true,
+                    "finalium_icons": {
+                        "use_hitchhiker_icons": true
+                    },
                     "storage": {
                         "default_pfp_override": "profiledef_hitchhiker.svg",
                         "default_video_thumbnail_override": "placeholder_hitchhiker.svg",
