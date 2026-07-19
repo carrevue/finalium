@@ -62,14 +62,24 @@
                     </div>
                     
                     <div class="shelf-header">
-                        {% if shelf.icon %}<img src="{{ shelf.icon }}" class="shelf-icon profile-picture">{% endif %}
-                        {% if shelf.link %}
-                            <h1 class="shelf-title"><a href="{{ shelf.link }}">{{ shelf.title }}</a></h1>
-                        {% else %}
-                            <h1 class="shelf-title">{{ shelf.title }}</h1> 
-                        {% endif %}
-                        {% if shelf.author %}<span class="shelf-label">by <b><a href="/user/{{ shelf.author.username }}">{{ shelf.author.displayname }}</a></b></span>{% endif %}
-                        {% if shelf.label %}<span class="shelf-label">{{ shelf.label }}</span>{% endif %}
+                        <div class="shelf-title-cell">
+                            {% if shelf.icon %}<img src="{{ shelf.icon }}" class="shelf-icon profile-picture">{% endif %}
+                            {% if shelf.link %}
+                                <h1 class="shelf-title"><a href="{{ shelf.link }}">{{ shelf.title }}</a></h1>
+                            {% else %}
+                                <h1 class="shelf-title">{{ shelf.title }}</h1> 
+                            {% endif %}
+                            {% if shelf.author %}<span class="shelf-label">by <b><a href="/user/{{ shelf.author.username }}">{{ shelf.author.displayname }}</a></b></span>{% endif %}
+                            {% if shelf.label %}<span class="shelf-label">{{ shelf.label }}</span>{% endif %}
+                        </div>
+                        <div class="shelf-title-cell">
+                            <div class="shelf-action">
+                                {% include 'components/follow_button.twig' with { 
+                                    user: key,
+                                    show_followers: true,
+                                } %}
+                            </div>
+                        </div>
                     </div>
                     {% if shelf.desc %}<div class="shelf-description">{{ shelf.desc }}</div>{% endif %}
                     <div class="shelf-slider">

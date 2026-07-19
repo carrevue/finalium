@@ -143,7 +143,7 @@ $button-padding: 7px 12px;
     }
 }
 
-a.button {
+a.button, a.button:hover, a.button:focus {
     text-decoration: none;
 }
 

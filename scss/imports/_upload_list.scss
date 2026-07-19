@@ -26,9 +26,19 @@ $thumbnail-background: #F0F0F0;
     border-bottom: 1px solid variables.$border;
 
     .shelf-header {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         margin-bottom: 10px;
+
+        .shelf-title-cell {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+
+            &:last-child {
+                justify-self: end;
+            }
+        }
 
         .shelf-icon {
             width: 20px;
@@ -58,6 +68,10 @@ $thumbnail-background: #F0F0F0;
             a {
                 color: variables.$description-text-color;
             }
+        }
+
+        .shelf-action {
+            color: green;
         }
     }
 

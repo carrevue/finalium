@@ -23,7 +23,7 @@
         border-bottom: 3px solid rgba(variables.$card-bg, 0);
     }
 
-    &:hover {
+    &:hover, &:focus {
         text-decoration: none;
         cursor: pointer;
     }
