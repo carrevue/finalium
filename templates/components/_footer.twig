@@ -16,7 +16,7 @@
             </div>
             <div class="footer-links-secondary">
                 <span>{{ localize('powered_by') }} OpenSB {{ opensb_version.name }} {{ opensb_version.number }}</span>
-                <span>{{ localize('footer_copyright', ('now' | date('Y'))) }}</span>
+                <span>{{ localize('footer_copyright', ('now' | date('Y'))) }}{% if is_fulptube %}, Not affiliated with Google LLC.{% endif %}</span>
             </div>
         </div>
     </div>
