@@ -44,7 +44,7 @@
 
 			<tr class="n{{ zebra }} center">
 				<td class="left"><a href="thread?id={{ thread.id }}">{{ thread.title }}</a></td>
-				<td>{{ userlink(thread, 'u') }}</td>
+				<td>{{ user_link(thread, 'u') }}</td>
 				<td>{{ thread.lastdate | date('Y-m-d H:i') }}</td>
 			</tr>
 			{% set i = i + 1 %}
