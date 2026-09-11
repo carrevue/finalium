@@ -77,12 +77,12 @@
 			<td class="left wbreak">
 				<a href="thread?id={{ thread.id }}">{{ thread.title }}</a>
 			</td>
-			<td class="nom">{{ user_link(thread, 'u1') }}</td>
+			<td class="nom">{#{{ user_link(thread, 'u1') }}#} {{ thread.u1name }}</td>
 			<td class="nom">{{ thread.posts - 1 }}</td>
 			<td class="nom">{{ thread.views }}</td>
 			<td>
 				<nobr>{{ thread.lastdate | date('Y-m-d H:i') }}</nobr><br>
-				<span>by {{ user_link(thread, 'u2') }} <a href="thread?pid={{ thread.lastid }}#{{ thread.lastid }}">&raquo;</a></span>
+				<span>by {#{{ user_link(thread, 'u2') }}#} {{ thread.u2name }} <a href="thread?pid={{ thread.lastid }}#{{ thread.lastid }}">&raquo;</a></span>
 			</td>
 		</tr>
 		{% set i = i + 1 %}
