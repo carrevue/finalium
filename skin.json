@@ -17,7 +17,8 @@
                 "id": "dark",
                 "name": "Dark",
                 "description": "The classic dark look of squareBracket, which is a little unpolished.",
-                "author": "Carrevue Development"
+                "author": "Carrevue Development",
+                "incomplete": true
             },
             {
                 "id": "hitchhiker",
