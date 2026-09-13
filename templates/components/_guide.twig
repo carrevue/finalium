@@ -21,7 +21,7 @@
             {% endfor %}
             <hr>
 
-            {# PLAYLISTS/COLLECTIONS #}
+            {# PLAYLISTS #}
             {% if logged_in and enable_incomplete_features %}
             <li class="header">{{ localize('library') }}</li>
                 {% for key, item in sidebar_library_links() %}

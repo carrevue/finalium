@@ -17,21 +17,21 @@
 {% endif %}
 
 <form action="newreply?id={{ tid }}" method="POST">
-	<table class="c1">
-		<tr class="h"><td colspan="2">Reply</td></tr>
+	<table class="styled">
+		<tr class="table-header"><td colspan="2">Reply</td></tr>
 		<tr>
 			<td class="n2 center"><textarea name="message" rows="15" cols="80" style="width:90%">{{ message }}</textarea></td>
 		</tr><tr>
 			<td class="n1 center">
-				<input type="submit" name="action" value="Preview">
-				<input type="submit" name="action" value="Submit">
+				<input type="submit" name="action" value="Preview" class="button button-default">
+				<input type="submit" name="action" value="Submit" class="button button-default">
 			</td>
 		</tr>
 	</table>
 </form>
 
-<table class="c1 threadpost">
-	<tr class="h"><td colspan="2">Thread preview</td></tr>
+<table class="styled threadpost">
+	<tr class="table-header"><td colspan="2">Thread preview</td></tr>
 	{% for post in newestposts %}
 		{{ minipost(post) }}
 	{% endfor %}
