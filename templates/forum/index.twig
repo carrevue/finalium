@@ -7,7 +7,7 @@
 	{% block content %}
 {% set category = -1 %}
 
-{% if log %}
+{% if is_user_logged_in %}
 	<a class="float-right" href="/forum/?action=markread&fid=all">Mark all forums read</a>
 {% endif %}
 
@@ -34,7 +34,7 @@
 
 	<tr class="table-header">
 		<td class="n1" style="width:30px">
-			{% if log and forum.lastdate > forum.rtime %}
+			{% if is_user_logged_in and forum.lastdate > forum.rtime %}
 				{{ new_status("n") }}
 			{% endif %}
 		</td>

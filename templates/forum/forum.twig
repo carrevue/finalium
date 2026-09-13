@@ -61,7 +61,7 @@
 
 		<tr class="n{{ tr }} center">
 			<td>
-				{% if log and not thread.isread %}
+				{% if is_user_logged_in and not thread.isread %}
 					{% if thread.closed %}
 						{{ new_status("on") }}
 					{% else %}
