@@ -39,7 +39,7 @@
 			{% endif %}
 		</td>
 		<td class="n2 left">
-			{% if forum.minread > 0 %}({% endif %}<a href="forum?id={{ forum.id }}">{{ forum.title }}</a>{% if forum.minread > 0 %}){% endif %}
+			{% if forum.minread > 0 %}({% endif %}<a href="/forum/forum?id={{ forum.id }}">{{ forum.title }}</a>{% if forum.minread > 0 %}){% endif %}
 			<div style="margin-top:3px">{{ forum.descr | raw }}</div>
 		</td>
 		<td class="n1 nom">{{ forum.threads }}</td>
