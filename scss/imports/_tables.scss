@@ -29,6 +29,8 @@ table.styled {
                 border: variables.$border 1px solid;
             }           
         }
+
+        background: variables.$card-bg;
     }
 
     td {
