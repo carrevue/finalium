@@ -9,7 +9,7 @@
             <div class="thread">
                 <div class="comment">
                     <div class="comment-avatar">
-                        <img src="{{ profile_picture(notice.sender.id) }}" class="profile-picture" alt="{{ notice.sender.info.username }}" loading="lazy">
+                        <img src="{{ profile_picture(notice.sender.id) }}" class="profile-picture" alt="{{ notice.sender.info.username }}" loading="lazy" data-user="{{ notice.sender.id }}">
                     </div>
                     <div class="comment-body">
                         <div class="comment-header">

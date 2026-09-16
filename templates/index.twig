@@ -13,7 +13,7 @@
             <div class="container {% if logged_in %}logged-in{% else %}logged-out{% endif %}">
                 {% if logged_in %}
                     <div class="jumbotron-left">
-                        <img class="profile-picture img-fluid" src="{{ profile_picture(user_data.id) }}" alt="{{ user_data.name }}">
+                        <img class="profile-picture img-fluid" src="{{ profile_picture(user_data.id) }}" alt="{{ user_data.name }}" data-user="{{ user_data.id }}">
                         <div>
                         <h1>{{ localize('welcome_logged_in', user_data.title) }}</h1>
                         <h3>@{{ user_data.name }}</h3>

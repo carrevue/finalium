@@ -11,7 +11,7 @@
     {% endif %}
     <div class="card has-padding">
         {% if current_theme == 'hitchhiker' %}
-            <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}">
+            <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}" data-user="{{ user_data.id }}">
         {% else %}
             <h1 class="form-login-heading">{{ localize('unverified_email_title') }}</h1>
         {% endif %}

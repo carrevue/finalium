@@ -40,7 +40,7 @@
                 <div class="col-6">
                     <div class="watch-creator">
                         <a href="/user/{{ upload.author.info.username }}" class="spf-link">
-                            <img src="{{ profile_picture(upload.author.id) }}" class="profile-picture" loading="lazy">
+                            <img src="{{ profile_picture(upload.author.id) }}" class="profile-picture" loading="lazy" data-user="{{ upload.author.id }}">
                         </a>
                         <div class="watch-creator-info">
                             <div class="watch-creator-userlink">
