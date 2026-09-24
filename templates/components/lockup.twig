@@ -1,0 +1,38 @@
+{% if upload.published_originally and upload.original_site %}
+    {% set time = upload.published_originally | relative_time %}
+{% else %}
+    {% set time = upload.published | relative_time %}
+{% endif %}
+
+<div class="lockup {{ type }}">
+    <div class="thumbnail">
+        {% if upload.type == 0 %}
+            <div class="thumbnail-badge-container">
+                <div class="thumbnail-badge">
+                    {{ convert_time(upload.length) }}
+                </div>
+            </div>
+        {% endif %}
+        <a href="/watch?v={{ upload.id }}" class="spf-link">
+            <img src="{{ thumbnail(upload.id, upload.type, upload.flags.custom_thumbnail) }}" alt="{{ upload.title }}" loading="lazy">
+        </a>
+    </div>
+    <div class="content-wrapper">
+        <h3 class="title"><a href="/watch?v={{ upload.id }}" class="spf-link">{{ upload.title }}</a></h3>
+        {% if not channels_browse %}<span class="stat">{{ user_link(upload.author) }}</span>{% endif %}
+        <div class="stats">
+            <span class="stat">{{ localize('views', upload.views) }}</span>
+            <span class="stat">{{ time }}</span>
+        </div>
+        {% if type == "tile" %}
+            {% if upload.description|trim is not empty %}
+                <div class="description">{{ upload.description | markdown_user_written }}</div>
+            {% endif %}
+        {% endif %}
+        <div class="badges">
+            {% if upload.type == 2 %}
+            <span><div class="badge">Image</div></span>
+            {% endif %}
+        </div>
+    </div>
+</div>

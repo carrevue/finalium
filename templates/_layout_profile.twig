@@ -1,5 +1,8 @@
 {% extends "_layout.twig" %}
 
+{% set pin_guide = true %}
+{% set flex_width_enabled = true %}
+
 {% set profile_picture = profile_picture(common.id) %}
 {% set banner_picture = profile_banner(common.id) %}
 
@@ -11,15 +14,25 @@
     
 {% block customcss %}
     {% if banner_picture %}
-    .channel-header-background {
-        background-image: url('{{ banner_picture.finalium }}');
-    }
-
-    @media screen and (min-resolution: 1.5dppx) {
         .channel-header-background {
-            background-image: url('{{ banner_picture.finalium_2x }}');
+            background-image: url('{{ banner_picture.finalium }}');
         }
-    }
+
+        @media screen and (min-resolution: 1.5dppx) {
+            .channel-header-background {
+                background-image: url('{{ banner_picture.finalium_2x }}');
+            }
+        }
+        
+        {# 
+            if the user doesn't have a banner, but has set their non-hitchhiker username color, use that as the background.
+            this loosely replicates functionality youtube had in hitchhiker for profiles with legacy video pfps.
+         #}
+        {% if current_theme == "hitchhiker" and common.color|lower not in ['#3399cc', '#523bb8', '#0069B4'] %}
+            .channel-header-background {
+                background-color: {{ common.color }};
+            }
+        {% endif %}
     {% endif %}
 {% endblock %}
 
@@ -29,65 +42,63 @@
              src="{{ profile_picture }}"  
              alt="{{ common.username }}">
     </div>
-    <div class="card channel-header">
-        <div class="card-has-padding">
-            <div class="channel-header-primary">
-                <div class="channel-header-name">
-                    <h1>{{ common.displayname }}</h1>
+    <div class="card has-padding channel-header">
+        <div class="channel-header-primary">
+            <div class="channel-header-name">
+                <h1>{{ common.displayname }}</h1>
 
-                    {% if data.displayname|lower != data.username|lower %}
-                        <div class="channel-header-handle">
-                            @{{ common.username }}
-                        </div>
-                    {% endif %}
+                {% if common.displayname|lower != common.username|lower %}
+                    <div class="channel-header-handle">
+                        @{{ common.username }}
+                    </div>
+                {% endif %}
 
-                    {% if common.is_staff %}
-                        <div class="userlink-icon uix-tooltip" title="{{ localize('staff') }}">{{ icon(fi.userlink_staff, username_verified_icon) }}</div>
-                    {% endif %}
-                </div>
-                <div class="channel-header-follow">
-                    {% if common.is_current or common.id == user_data.id %}
-                        <a class="button button-default button-small" href="/settings">{{ icon(fi.account_settings, account_settings_button_icon_size) }} Channel settings</a>
-                    {% else %}
-                        {% include 'components/follow_button.twig' with { 
-                            user: common,
-                            show_followers: true,
-                        } %}
-                    {% endif %}
-                </div>
+                {% if common.is_staff %}
+                    <div class="userlink-icon uix-tooltip" title="{{ localize('staff') }}">{{ icon(fi.userlink_staff, username_verified_icon) }}</div>
+                {% endif %}
             </div>
-            <div class="channel-header-secondary">
-                <a class="tablink{% if selected_tab == 'home' %} active{% endif %}" 
-                    href="/user/{{ common.username }}">Home</a>
-                <a class="tablink{% if selected_tab == 'uploads' %} active{% endif %}" 
-                    href="/user/{{ common.username }}/uploads">Uploads</a>
-                <a class="tablink{% if selected_tab == 'journals' %} active{% endif %}" 
-                    href="/user/{{ common.username }}/journals">Journals</a>
-                <a class="tablink{% if selected_tab == 'comments' %} active{% endif %}" 
-                    href="/user/{{ common.username }}/comments">Discussion</a>
-                <a class="tablink{% if selected_tab == 'about' %} active{% endif %}" 
-                    href="/user/{{ common.username }}/about">About</a>
+            <div class="channel-header-follow">
+                {% if common.is_current or common.id == user_data.id %}
+                    <a class="button button-default button-small" href="/settings">{{ icon(fi.account_settings, account_settings_button_icon_size) }} Channel settings</a>
+                {% else %}
+                    {% include 'components/follow_button.twig' with { 
+                        user: common,
+                        show_followers: true,
+                    } %}
+                {% endif %}
             </div>
+        </div>
+        <div class="channel-header-secondary">
+            <a class="tablink{% if selected_tab == 'home' %} active{% endif %}" 
+                href="/user/{{ common.username }}">Home</a>
+            <a class="tablink{% if selected_tab == 'uploads' %} active{% endif %}" 
+                href="/user/{{ common.username }}/uploads">Uploads</a>
+            {#<a class="tablink{% if selected_tab == 'videos' %} active{% endif %}" 
+                href="/user/{{ common.username }}/videos">Videos</a>
+            <a class="tablink{% if selected_tab == 'images' %} active{% endif %}" 
+                href="/user/{{ common.username }}/images">Images</a>#}
+            <a class="tablink{% if selected_tab == 'journals' %} active{% endif %}" 
+                href="/user/{{ common.username }}/journals">Journals</a>
+            <a class="tablink{% if selected_tab == 'comments' %} active{% endif %}" 
+                href="/user/{{ common.username }}/comments">Discussion</a>
+            <a class="tablink{% if selected_tab == 'about' %} active{% endif %}" 
+                href="/user/{{ common.username }}/about">About</a>
         </div>
     </div>
     {% if not show_related_channels %}
         {% block profile_content %}
         {% endblock %}
     {% else %}
-        <div class="profile-page-grid">
-            <div class="content">
+        <div class="branded-page-grid">
+            <div class="primary-col">
                 {{ block('profile_content') }}
             </div>
-            <div class="profile-channels-list">
-                <div class="card">
-                    <div class="card-has-padding">
+            <div class="secondary-col">
+                <div class="card has-padding">
                         Custom channels
-                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-has-padding">
-                        Related channels
-                    </div>
+                <div class="card has-padding">
+                    Related channels
                 </div>
             </div>
         </div>

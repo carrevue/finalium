@@ -9,26 +9,26 @@
 {% set selected_tab = "home" %}
 
 {% block profile_content %}
-    <div class="card">
-        <div class="card-has-padding">
-            {% if data.featured_upload %}
-                <div class="profile-featured-upload">
-                    <div class="upload-container">
-                        {{ upload_view((data.featured_upload)) }}
-                    </div>
-                    <div class="upload-info">
-                        <div class="content-wrapper">
-                            <h3 class="title"><a href="/watch?v={{ data.featured_upload.id }}">{{ data.featured_upload.title }}</a></h3>
-                        </div>
+    <div class="card results">
+        {% if data.featured_upload %}
+            <div class="profile-featured-upload">
+                <div class="upload-container">
+                    {{ upload_view((data.featured_upload)) }}
+                </div>
+                <div class="upload-info">
+                    <div class="content-wrapper">
+                        <h3 class="title"><a href="/watch?v={{ data.featured_upload.id }}">{{ data.featured_upload.title }}</a></h3>
                     </div>
                 </div>
-                <hr>
-            {% endif %}
-            {% for upload in data.uploads %}
-                {% include "components/upload_box.twig" %}
-            {% else %}
-                <p>There are currently no uploads by {{ common.displayname }}</p>
-            {% endfor %}
-        </div>
+            </div>
+            <hr>
+        {% endif %}
+        {% for upload in data.uploads %}
+            {% include "components/lockup.twig" with { 
+                type: "tile",
+            } %}
+        {% else %}
+            <p class="display-message">This channel doesn't have any content.</p>
+        {% endfor %}
     </div>
 {% endblock %}

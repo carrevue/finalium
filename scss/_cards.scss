@@ -9,25 +9,37 @@
     @else {
         border: 1px solid $card-border;
     }
-}
 
-.card-has-padding {
-    padding: 15px;
+    &.has-padding {
+        padding: 15px;
 
-    @if $theme == "hitchhiker" {
-        h3.card-title,
-        h4.card-title {
-            margin: 0 5px 10px;
+        @if $theme == "hitchhiker" {
+            h3.card-title,
+            h4.card-title {
+                margin: 0 5px 10px;
+            }
+        } @else {
+            h3,
+            h4 {
+                margin: 0 0 10px;
+            }
         }
-    } @else {
-        h3,
-        h4 {
-            margin: 0 0 10px;
+
+        &.expander {
+            padding-bottom: 0;
         }
     }
 
-    &.expander {
-        padding-bottom: 0;
+    // equivalent to #results on hitchhiker results page
+    &.results {
+        .lockup.tile {
+            padding: 10px 15px;
+        }
+
+        .pagination {
+            padding: 15px;
+            margin: 0;
+        }
     }
 }
 

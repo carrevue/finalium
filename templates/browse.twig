@@ -27,11 +27,13 @@
                 </div>
             </div>
             <div class="col-10">
-                <div class="card card-has-padding">
+                <div class="card results">
                     {% for upload in data.uploads %}
-                        {% include "components/upload_box.twig" %}
+                        {% include "components/lockup.twig" with { 
+                            type: "tile",
+                        } %}
                     {% else %}
-                        There are no uploads.
+                        <p class="display-message">There are no uploads.</p>
                     {% endfor %}
                     {{ pagination(data.count, items_per_page, le_url, page) }}
                 </div>

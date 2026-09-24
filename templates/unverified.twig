@@ -9,7 +9,7 @@
         </a>
         <h1>{{ localize('unverified_email_title') }}</h1>
     {% endif %}
-    <div class="card card-has-padding">
+    <div class="card has-padding">
         {% if current_theme == 'hitchhiker' %}
             <img src="{{ profile_picture(user_data.id) }}" class="profile-picture" alt="{{ user_data.name }}">
         {% else %}

@@ -63,7 +63,8 @@
     }
 
     input[type="text"],
-    input[type="password"] {
+    input[type="password"],
+    input[type="email"] {
         font-size: 16px;
         height: auto;
         width: 100%;
@@ -77,7 +78,7 @@
         }
     }
 
-    .card-has-padding {
+    .card.has-padding {
         margin: auto;
 
         @if $theme == "hitchhiker" {

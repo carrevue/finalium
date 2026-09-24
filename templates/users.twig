@@ -9,14 +9,21 @@
 		{% set current_page = page %}
         {% set le_url = 'members?page=%s' %}
 
-        <div class="profile-page-grid">
-            <div class="content">
-                <div class="card card-has-padding">
+        {#<div class="branded-page-grid">
+            <div class="content">#}
+                <div class="card has-padding">
                     <h1>{{ localize("members") }}</h1>
+                    <div class="tabs">
+                        {% for key, tab in tabs %}
+                            <a class="tablink {% if type==key %}active{% endif %}" href="/members?type={{key}}">
+                                {{ localize(tab.name) }}
+                            </a>                
+                        {% endfor %}
+                    </div>
                     <div class="members-list">
                         {% for user in users.users %}
                             <div class="members-list-member">
-                                <img src="{{ profile_picture(user.id) }}" alt="{{ user.info.username }}" class="profile-picture">
+                                <img src="{{ profile_picture(user.id) }}" alt="{{ user.info.username }}" class="profile-picture" loading="lazy" data-user="{{ user.id }}">
                                 <div class="members-list-entry-info">
                                     <div class="members-list-entry-top">
                                         <div class="members-list-entry-username">{{ user_link(user) }}</div>
@@ -32,13 +39,11 @@
                     {{ pagination(users.count, items_per_page, le_url, current_page) }}
                 </div>
             </div>
-            <div class="profile-channels-list">
-                <div class="card">
-                    <div class="card-has-padding">
-                        Recommended channels
-                    </div>
+            {#<div class="secondary-col">
+                <div class="card has-padding">
+                    Recommended channels
                 </div>
             </div>
-        </div>
+        </div>#}
 
 	{% endblock %}

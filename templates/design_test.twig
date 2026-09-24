@@ -6,7 +6,7 @@
     <div class="grid">
         <div class="col-6">
             <div class="card">
-                <div class="card-has-padding">
+                <div class="has-padding">
                     <h1>Buttons</h1>
                     {% set sizes = {
                         'small': 'button-small',
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-has-padding">
+                <div class="has-padding">
                     <h1>Menus</h1>
                     <div class="menu-container">
                         <div class="menu-button button button-default" data-menu-id="test-menu">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-has-padding">
+                <div class="has-padding">
                     <h1>Tables</h1>
                     <table class="styled">
                         <tr class="table-header">
@@ -79,7 +79,7 @@
         </div>
         <div class="col-6">
             <div class="card">
-                <div class="card-has-padding">
+                <div class="has-padding">
                     <h1>Banners</h1>
                     {% for color in banner_color_types %}
                         {% set article = color|first|lower in ['a','e','i','o','u'] ? 'an' : 'a' %}
