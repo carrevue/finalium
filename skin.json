@@ -73,6 +73,7 @@
         "options": {
             "use_old_userlink": true,
             "view_use_error_page": true,
+            "homepage_use_finalium_version": true,
             "storage": {
                 "default_pfp_override": "profiledef.png",
                 "default_video_thumbnail_override": "placeholder.png",
