@@ -46,7 +46,7 @@
     </div>
     <div class="replies" id="replies-{{ comment.id }}">
         {% for reply in comment.replies %}
-            {{ comment(reply) }}
+            {{ include('/components/comment.twig', { comment: reply }) }}
         {% endfor %}
     </div>
 </div>

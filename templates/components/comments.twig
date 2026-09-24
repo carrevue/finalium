@@ -18,5 +18,5 @@
 {% endif %}
 <div id="comment"></div>
 {% for comment in comments %}
-    {{ comment(comment) }}
+    {{ include('/components/comment.twig', { comment: comment }) }}
 {% endfor %}
