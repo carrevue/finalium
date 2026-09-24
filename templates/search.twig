@@ -3,7 +3,7 @@
 {% set title = localize('search_results_for', data.query) %}
 
 	{% block content %}
-        <div class="card has-padding">
+        <div class="card results">
             {% for upload in data.uploads %}
                 {% include "components/lockup.twig" with { 
                     type: "tile",
@@ -16,6 +16,4 @@
         {% set le_url = 'search?query=' ~ data.query ~ '&page=%s' %}
 
         {{ pagination(data.count, items_per_page, le_url, current_page) }}
-
-        <br><br>
     {% endblock %}
