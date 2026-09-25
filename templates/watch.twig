@@ -91,12 +91,12 @@
                     </div>
                 </div>
                 <div class="watch-sentiment-actions">
-                    <button href="/#" id="{% if logged_in %}like{% else %}action_unlogged{% endif %}"
+                    <button href="/#" id="{% if is_user_logged_in %}like{% else %}action_unlogged{% endif %}"
                             class="button button-like button-default-invis uix-tooltip {% if upload.interactions.legacy.current_rating == "like" %}button-toggled{% endif %}" title="{{ localize('i_like_this') }}">
                         {{ icon(fi.watch_like, 20) }}
                         <span id="like-count">{{ upload.interactions.legacy.likes }}</span>
                     </button>
-                    <button href="/#" id="{% if logged_in %}dislike{% else %}action_unlogged{% endif %}"
+                    <button href="/#" id="{% if is_user_logged_in %}dislike{% else %}action_unlogged{% endif %}"
                             class="button button-dislike button-default-invis uix-tooltip {% if upload.interactions.legacy.current_rating == "dislike" %}button-toggled{% endif %}" title="{{ localize('i_dislike_this') }}">
                         {{ icon(fi.watch_dislike, 20) }}
                         <span id="dislike-count">{{ upload.interactions.legacy.dislikes }}</span>
