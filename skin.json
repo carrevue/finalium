@@ -7,12 +7,36 @@
         "site": "squarebracket",
         "themes": {
             "default": {
-                "name": "Light",
+                "name": "squareBracket Classic",
                 "description": "The classic look of squareBracket from 2022.",
                 "author": "Carrevue Development",
                 "options": {
                     "finalium_display_jumbotron": true,
                     "finalium_header_upload_button_icon": true
+                }
+            },
+            "polymer": {
+                "name": "Polymer",
+                "description": "God forgive me.",
+                "author": "Carrevue Development",
+                "options": {
+                    "fulptube_branding": true,
+                    "finalium_use_hitchhiker_banner": true,
+                    "userlink_disable_colors": true,
+                    "finalium_header": {
+                        "hitchhiker": true
+                    },
+                    "finalium_icons": {
+                        "use_hitchhiker_icons": true
+                    },
+                    "localization": {
+                        "hitchhiker_strings": true
+                    },
+                    "storage": {
+                        "default_pfp_override": "profiledef_hitchhiker.svg",
+                        "default_video_thumbnail_override": "placeholder_hitchhiker.svg",
+                        "default_image_thumbnail_override": "placeholder_hitchhiker.svg"
+                    }
                 }
             },
             "hitchhiker": {

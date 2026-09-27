@@ -106,6 +106,49 @@ $accent: $primary;
     $accent: #CC181E;
 }
 
+@if $theme == "polymer" {
+    $threshold: 65%;
+    $red: #ff0000;
+    $white: #FCFCFC;
+    $black: #000;
+    $yellow: #fbc02d;
+    $blue: #065fd4;
+    $green: #107516;
+
+
+    $primary: $blue;
+    $success: $green;
+    $warning: $yellow;
+    $danger: $red;
+
+    $light: #666; // unused
+    $dark: #333; // unused
+
+    $card-bg: #fff; // unused
+    $card-border: #d3d3d3; // unused
+
+    $masthead-bg: #ffffff;
+    $masthead-border: #e8e8e8;
+
+    $footer-bg: #ffffff;
+    $footer-border: #e8e8e8;
+
+    $guide-bg: #ffffff;
+    $guide-border: #e8e8e8;
+
+    $body-bg: #f1f1f1;
+
+    $likesaber-gray: #cccccc;
+
+    $primary: $blue;
+    $secondary: #f8f8f8;
+    $success: $green;
+    $warning: $yellow;
+    $danger: $red;
+
+    $accent: #cc0000;
+}
+
 $button-colors: (
     "primary": $primary,
     "default": $secondary,

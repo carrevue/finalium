@@ -8,6 +8,10 @@ $button-padding: 7px 12px;
     $button-padding: 0 10px;
 }
 
+@if $theme == "polymer" {
+    $button-padding: 10px 16px;
+}
+
 @mixin button {
     color: white;
     padding: $button-padding;
@@ -29,6 +33,10 @@ $button-padding: 7px 12px;
             outline: 1px solid #767676;
             box-shadow: 0 0 0 2px rgba(27, 127, 204, 0.4);
         }
+    } @else if $theme == "polymer" {
+        text-transform: uppercase;
+        font-weight: 500;
+        border-radius: 2px;
     } @else {
         font-weight: 500;
         font-size: 11px;

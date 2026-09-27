@@ -52,6 +52,8 @@ html.show-guide #guide {
 
         @if $theme == "hitchhiker" {
             padding: 13px 22px;
+        } @else if $theme == "polymer" {
+            padding: 12px 0;
         } @else {
             padding: 1em;
         }
@@ -67,17 +69,23 @@ html.show-guide #guide {
         text-transform: uppercase;
     }
 }
+
 .guide-item {
     white-space: nowrap;
     display: flex;
-    height: 28px;
     justify-content: flex-start;
     align-items: center;
 
     @if $theme == "hitchhiker" {
         color: #222222;
+        height: 28px; // temporary
+    } @else if $theme == "polymer" {
+        color: #030303;
+        height: 40px; // temporary
+        padding: 0 24px;
     } @else {
         color: #444;
+        height: 28px; // temporary
     }
 
     .thumb {
@@ -87,6 +95,11 @@ html.show-guide #guide {
             margin-left: 9px;
             margin-right: 9.5px; // hitchhiker had a whitespace causing a slightly larger gap
             color: #878787;
+        } @else if $theme == "polymer" {
+            width: 24px;
+            height: 24px;
+            margin-right: 24px;
+            color: #606060;
         } @else {
             width: 16px;
             height: 16px;
@@ -108,9 +121,13 @@ html.show-guide #guide {
     }
 
     &.selected {
-        background: variables.$accent;
-        color: #fff;
-        font-weight: 500;
+        @if $theme == "polymer" {
+            background: rgba(0,0,0,0.1);
+        } @else {
+            background: variables.$accent;
+            color: #fff;
+            font-weight: 500;
+        }
         
         @if $theme == "hitchhiker" {
             text-shadow: -1px -1px 0 rgba(0,0,0,0.25);

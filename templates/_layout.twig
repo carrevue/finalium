@@ -89,7 +89,9 @@
     </div>
 </div>
 
-{% include "components/_footer.twig" %}
+{% if current_theme != "polymer" %}
+    {% include "components/_footer.twig" %}
+{% endif %}
 
 </body>
 </html>

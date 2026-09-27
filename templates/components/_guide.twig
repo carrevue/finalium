@@ -1,6 +1,9 @@
 {% set guide_links = sidebar_main_links() %}
 
-{% if skin_theme_options.finalium_icons.use_hitchhiker_icons %}
+{# temporary #}
+{% if current_theme == "polymer" %}
+    {% set guide_icon_size = 24 %}
+{% elseif skin_theme_options.finalium_icons.use_hitchhiker_icons %}
     {% set guide_icon_size = 20 %}
 {% else %}
     {% set guide_icon_size = 16 %}
@@ -64,10 +67,20 @@
             {% endfor %}
             
             {# LOGIN THING (hitchhiker only) #}
-            {% if not logged_in and current_theme == "hitchhiker" %}
+            {% if not logged_in and current_theme != "hitchhiker" %}
                 <hr>
                 <p>Sign in now to see your channels and recommendations!</p>
                 <a href="/login" class="button button-primary">{{ localize('login') }}</a>
+            {% endif %}
+
+            {% if current_theme == "polymer" %}
+                <hr>
+                {% for link in footer_links() %}
+                    <a href="{{ link.url }}">{{ link.name }}</a>
+                {% endfor %}
+
+                <div>{{ localize('powered_by') }} OpenSB {{ opensb_version.name }} {{ opensb_version.number }}</div>
+                <div>{{ localize('footer_copyright', ('now' | date('Y'))) }}</div>
             {% endif %}
         </ul>
     </div>

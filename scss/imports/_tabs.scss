@@ -13,12 +13,17 @@
 .tablink {
     color: variables.$light-text-color;
 
-    padding: 0 3px;
-    height: 32px; // on yt this was defined as 29px but this doesnt work here
-    line-height: 29px;
+    @if $theme == "polymer" {
+        text-transform: uppercase;
+        padding: 13px 32px;
+    } @else {
+        padding: 0 3px;
+        height: 32px; // on yt this was defined as 29px but this doesnt work here
+        line-height: 29px;
+    }
 
     // emulate the classic finalium implementation of tabs
-    @if $theme != "hitchhiker" {
+    @if $theme == "default" {
         transition: .3s;
         border-bottom: 3px solid rgba(variables.$card-bg, 0);
     }
@@ -31,7 +36,7 @@
     &.active,
     &:hover {
         border-bottom: 3px solid variables.$accent;
-        @if $theme != "hitchhiker" {
+        @if $theme == "default" {
             color: variables.$description-text-color;
         }
     }

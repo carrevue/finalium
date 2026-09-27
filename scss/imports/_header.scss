@@ -38,6 +38,8 @@ $masthead-user-pfp: 32px;
 
     @if $theme == "hitchhiker" {
         gap: 15px;
+    } @else if $theme == "polymer" {
+        gap: 8px;
     } @else {
         gap: 1em;
 
