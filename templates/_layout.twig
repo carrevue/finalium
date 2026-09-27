@@ -23,11 +23,11 @@
 {% endif %}
 
 <!DOCTYPE html>
-<html lang="en-US" class="{% if pin_guide %}show-guide guide-pinned{% endif %} {% if current_theme == "hitchhiker" %}hitchhiker{% endif %}">
+<html lang="en-US" class="{% if pin_guide %}show-guide guide-pinned{% endif %} {% if current_theme == "hitchhiker" %}hitchhiker{% endif %}" data-theme="{{ current_theme }}">
 <head>
     {{ include('_html_head.twig') }}
     
-    <link name="skin-css" rel="stylesheet" href="/assets/css/finalium_{{ current_theme }}.css?r={{ get_css_file_timestamp() }}" type="text/css">
+    <link name="skin-css" rel="stylesheet" href="/assets/css/finalium_base.css?r={{ get_css_file_timestamp() }}" type="text/css">
     {% block script %}{% endblock %}
     <script>
         subscribe_string = '{{ localize('follow') }}';

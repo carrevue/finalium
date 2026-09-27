@@ -197,3 +197,7 @@ $guide-width: 230px;
     $header-height: 49px;
     $masthead-search-bar-height: 29px;
 }
+
+:root {
+    --primary: #{$primary};
+}

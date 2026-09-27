@@ -1,0 +1,17 @@
+@mixin if-theme($names...) {
+    @each $name in $names {
+        [data-theme="#{$name}"] & {
+            @content;
+        }
+    }
+}
+
+@mixin if-theme-not($names...) {
+    $sel: "";
+    @each $name in $names {
+        $sel: $sel + ':not([data-theme="#{$name}"])';
+    }
+    &#{$sel} {
+        @content;
+    }
+}
