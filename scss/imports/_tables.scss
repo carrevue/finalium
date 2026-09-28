@@ -1,9 +1,5 @@
 @use 'config' as *;
-$theme: "default" !default;
-$color-scheme: "light" !default;
-
 @use "variables";
-
 @use "sass:color";
 
 table.styled {

@@ -1,16 +1,17 @@
 @use 'config' as *;
 @use "variables";
 @use 'functions';
+@use 'mixins/theme' as theme;
 
 .banner {
-    @if $theme == "hitchhiker" {
+    @include theme.if-theme("hitchhiker", "polymer") {
         padding: 9.5px 1em;
         font-size: 13px;
         line-height: 1.2;
         font-weight: 500;
     }
 
-    @else {
+    @include theme.if-theme("default") {
         padding: 0.5em 1em;
         border-radius: 3px;
     }
@@ -28,18 +29,17 @@
         top: 0;
         display: flex;
         align-items: center;
-
-        @if $theme != "hitchhiker" {
-            border-radius: 0;
-        }
+        border-radius: 0;
     }
 
     .banner-icon {
         margin-right: 13px;
 
-        @if $theme == "hitchhiker" {
+        @include theme.if-theme("hitchhiker", "polymer") {
             height: 20px;
-        } @else {
+        }
+
+        @include theme.if-theme("default") {
             height: 16px;
         }
     }
@@ -47,11 +47,12 @@
 
 @each $state, $value in variables.$banner-colors {
     .banner-#{$state} {
-        @if $theme == "hitchhiker" {
+        @include theme.if-theme("hitchhiker", "polymer") {
+            // TODO: warning banner was light yellow
             background-color: $value;
         }
 
-        @else {
+        @include theme.if-theme("default") {
             border: 1px solid darken($value, 3.5%);
             background-color: lighten($value, 1.5%);
             background-image: linear-gradient(

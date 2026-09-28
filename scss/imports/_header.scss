@@ -24,7 +24,7 @@ $masthead-user-pfp: 32px;
     align-items: center;
     justify-content: space-between;
 
-    @if $theme != "hitchhiker" {
+    @include theme.if-theme-not("hitchhiker") {
         gap: 15px;
     }
 }

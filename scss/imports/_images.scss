@@ -1,6 +1,6 @@
 @use 'config' as *;
-
 @use "variables";
+@use 'mixins/theme' as theme;
 
 .img-fluid {
     width: 100%;
@@ -8,11 +8,13 @@
 }
 
 .profile-picture {
-    @if $theme == "hitchhiker" {
-        background: #f1f1f1;
-    } @else {
+    @include theme.if-theme-not("hitchhiker") {
         border-radius: 50%;
     }
+
+    @include theme.if-theme("hitchhiker") {
+        background: #f1f1f1;
+    } 
 }
 
 .img-center {

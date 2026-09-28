@@ -1,4 +1,6 @@
 @use 'config' as *;
+@use 'mixins/theme' as theme;
+
 $theme: "default" !default;
 $color-scheme: "light" !default;
 $era: "2016" !default;
@@ -339,15 +341,16 @@ body {
     margin: 0;
     width: 100%;
     font-size: 13px;
+    line-height: 1.4;
 
-    @if $theme == "hitchhiker" {
+    @include theme.if-theme("hitchhiker") {
         // in the actual hitchhiker css its initially defined as 12px but then gets redefined as 13px.
         //font-size: 12px;
         line-height: normal;
     }
 
-    @else {
-        line-height: 1.4;
+    @include theme.if-theme("polymer") {
+
     }
 }
 
@@ -364,7 +367,7 @@ body {
 .journal {
     margin-bottom: 1em;
 
-    @if $theme == "hitchhiker" {
+    @include theme.if-theme("hitchhiker") {
         margin-left: 5px;
     }
 }

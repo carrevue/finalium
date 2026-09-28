@@ -1,5 +1,6 @@
 @use 'config' as *;
 @use "variables";
+@use 'mixins/theme' as theme;
 
 html.guide-pinned #guide {
     box-shadow: none;
@@ -50,11 +51,15 @@ html.show-guide #guide {
     .guide-container {
         width: variables.$guide-width;
 
-        @if $theme == "hitchhiker" {
+        @include theme.if-theme("hitchhiker") {
             padding: 13px 22px;
-        } @else if $theme == "polymer" {
+        } 
+        
+        @include theme.if-theme("polymer") {
             padding: 12px 0;
-        } @else {
+        } 
+        
+        @include theme.if-theme("default") {
             padding: 1em;
         }
     }
@@ -76,31 +81,39 @@ html.show-guide #guide {
     justify-content: flex-start;
     align-items: center;
 
-    @if $theme == "hitchhiker" {
+    @include theme.if-theme("hitchhiker") {
         color: #222222;
         height: 28px; // temporary
-    } @else if $theme == "polymer" {
+    } 
+    
+    @include theme.if-theme("polymer") {
         color: #030303;
         height: 40px; // temporary
         padding: 0 24px;
-    } @else {
+    } 
+    
+    @include theme.if-theme("default") {
         color: #444;
         height: 28px; // temporary
     }
 
     .thumb {
-        @if $theme == "hitchhiker" {
+        @include theme.if-theme("hitchhiker") {
             width: 20px;
             height: 20px;
             margin-left: 9px;
             margin-right: 9.5px; // hitchhiker had a whitespace causing a slightly larger gap
             color: #878787;
-        } @else if $theme == "polymer" {
+        } 
+        
+        @include theme.if-theme("polymer") {
             width: 24px;
             height: 24px;
             margin-right: 24px;
             color: #606060;
-        } @else {
+        } 
+        
+        @include theme.if-theme("default") {
             width: 16px;
             height: 16px;
             margin: 0 6px 0 8px;
@@ -121,16 +134,18 @@ html.show-guide #guide {
     }
 
     &.selected {
-        @if $theme == "polymer" {
+        @include theme.if-theme("hitchhiker") {
+            text-shadow: -1px -1px 0 rgba(0,0,0,0.25);
+        }
+
+        @include theme.if-theme("polymer") {
             background: rgba(0,0,0,0.1);
-        } @else {
+        } 
+        
+        @include theme.if-theme-not("polymer") {
             background: variables.$accent;
             color: #fff;
             font-weight: 500;
-        }
-        
-        @if $theme == "hitchhiker" {
-            text-shadow: -1px -1px 0 rgba(0,0,0,0.25);
         }
 
         .thumb {

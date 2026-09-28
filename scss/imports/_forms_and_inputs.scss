@@ -1,5 +1,6 @@
 @use 'config' as *;
 @use "variables";
+@use 'mixins/theme' as theme;
 
 .form-content {
     line-height: 1.2;
@@ -34,13 +35,13 @@ input:is(
     [type=datetime-local],
     [type=time]
 ) {
-    @if $theme == "hitchhiker" {
+    @include theme.if-theme("hitchhiker") {
         background-color: #ffffff;
         border: 1px solid #cccccc;
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     }
 
-    @else {
+    @include theme.if-theme("default") {
         border: 1px solid variables.$form-input-border;
         background: variables.$form-input;
         border-radius: 4px;
@@ -50,7 +51,7 @@ input:is(
     }
 
     &:focus {
-        @if $theme != "hitchhiker" {
+        @include theme.if-theme("default") {
             border-color: variables.$primary;
             box-shadow: 0 0 5px variables.$primary;
         }

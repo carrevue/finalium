@@ -33,7 +33,7 @@
         </div>
         {% if logged_in %}
             <div id="header-user">
-                {% if skin_theme_options.finalium_header_upload_button_icon %}
+                {% if skin_theme_options.finalium_header.upload_button_icon %}
                     <a class="button button-default-invis masthead-button uix-tooltip" title="{{ localize('new_upload') }}" href="/upload">{{ icon(fi.masthead_upload, masthead_button_icon_size) }}</a>
                     <a class="button button-default-invis masthead-button" href="/notifications">{{ icon(fi.masthead_bell, masthead_button_icon_size) }}</a>
                 {% else %}
@@ -79,7 +79,7 @@
         {% else %}
             <div id="header-signin">
                 {% if skin_theme_options.finalium_header.hitchhiker %}
-                    {% if skin_theme_options.finalium_header_upload_button_icon %}
+                    {% if skin_theme_options.finalium_header.upload_button_icon %}
                         <a class="button button-default-invis masthead-button uix-tooltip" title="{{ localize('new_upload') }}" href="/upload">{{ icon(fi.masthead_upload, masthead_button_icon_size) }}</a>
                     {% else %}
                         <a href="/upload" class="button button-default">{{ localize('new_upload') }}</a>

@@ -12,7 +12,9 @@
                 "author": "Carrevue Development",
                 "options": {
                     "finalium_display_jumbotron": true,
-                    "finalium_header_upload_button_icon": true
+                    "finalium_header": {
+                        "upload_button_icon": true
+                    }
                 }
             },
             "polymer": {
@@ -24,7 +26,8 @@
                     "finalium_use_hitchhiker_banner": true,
                     "userlink_disable_colors": true,
                     "finalium_header": {
-                        "hitchhiker": true
+                        "hitchhiker": true,
+                        "upload_button_icon": true
                     },
                     "finalium_icons": {
                         "use_hitchhiker_icons": true

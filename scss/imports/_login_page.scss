@@ -1,18 +1,19 @@
 @use 'config' as *;
 @use "variables";
+@use 'mixins/theme' as theme;
 
 .login-body {
-    @if $theme != "hitchhiker" {
+    @include theme.if-theme("default") {
         background: #2B3644 url(/assets/skin/finalium/droplets.jpg);
         background-size: cover;
     }
 
-    @else {
+    @include theme.if-theme-not("default") {
         h1 {
             font-weight: 300;
             margin-bottom: 15px;
 
-            @if $theme == "hitchhiker" {
+            @include theme.if-theme("hitchhiker") {
                 font-size: 18px;
             }
         }
@@ -58,9 +59,7 @@
     .login-footer {
         text-align: center;
 
-        @if $theme != "hitchhiker" {
-            color: white;
-        } @else {
+        @include theme.if-theme("hitchhiker") {
             margin-top: 30px;
         }
     }
@@ -84,7 +83,7 @@
     .card.has-padding {
         margin: auto;
 
-        @if $theme == "hitchhiker" {
+        @include theme.if-theme("hitchhiker") {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -93,7 +92,7 @@
             padding: 40px;
         }
 
-        @else {
+        @include theme.if-theme-not("hitchhiker") {
             width: 300px;
             padding: 19px 29px 29px;
         }

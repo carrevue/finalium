@@ -1,5 +1,6 @@
 @use 'config' as *;
 @use "variables";
+@use 'mixins/theme' as theme;
 
 .footer {
     padding: 0 30px;
@@ -40,7 +41,7 @@
         .footer-links-primary a,
         .footer-links-secondary a {
 
-            @if $theme == "hitchhiker" {
+            @include theme.if-theme("hitchhiker") {
                 &:hover {
                     color: variables.$primary;
                 }

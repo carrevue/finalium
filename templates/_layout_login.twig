@@ -13,11 +13,11 @@
 {% endif %}
 
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" data-theme="{{ current_theme }}">
 <head>
     {{ include('_html_head.twig') }}
     
-    <link rel="stylesheet" href="/assets/css/finalium_{{ current_theme }}.css?r={{ get_css_file_timestamp() }}" type="text/css">
+    <link name="skin-css" rel="stylesheet" href="/assets/css/finalium_base.css?r={{ get_css_file_timestamp() }}" type="text/css">
     <script src="/assets/skin/finalium/common.js?r={{ get_css_file_timestamp() }}"></script>
     {% block script %}{% endblock %}
     <script>

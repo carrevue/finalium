@@ -1,6 +1,6 @@
 @use 'config' as *;
-
 @use "variables";
+@use 'mixins/theme' as theme;
 
 .comments-header {
     color: variables.$header-text-color;
@@ -47,7 +47,7 @@
             resize: none;
             padding: 5px 10px;
 
-            @if $theme == "hitchhiker" {
+            @include theme.if-theme("hitchhiker") {
                 &:focus {
                     border-color: variables.$primary;
                 }
