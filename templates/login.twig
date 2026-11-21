@@ -20,6 +20,9 @@
         <input type="password" name="password" class="input-block-level" placeholder="{{ localize('password') }}">
         <input class="button button-big button-primary" type="submit" value="{{ localize('login') }}"
                 name="loginsubmit">
+        {% if is_fulptube %}
+            <p>Do not use your real Google/YouTube credentials.</p>
+        {% endif %}
         {% if not is_test_instance and current_theme != "hitchhiker" %}
         <p>{{ localize('dont_have_an_account') }} <a href="/register">{{ localize('register') }}</a></p>
         {% endif %}
