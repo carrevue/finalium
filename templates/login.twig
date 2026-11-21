@@ -7,13 +7,13 @@
         <a href="/">
             <img id="logo" src="{{ logo }}" alt="{{ website_branding.name }}">
         </a>
-        <h1>{{ localize('login') }}</h1>
+        <h1>{{ localize('login_with_your_account', website_branding.name) }}</h1>
     {% endif %}
     <form method="post" name="loginForm" id="loginForm" action="login" class="card has-padding">
         {% if current_theme == 'hitchhiker' %}
             <img src="/assets/profiledef_hitchhiker.svg" class="profile-picture">
         {% else %}
-            <h1 class="form-login-heading">{{ localize('login') }}</h1>
+            <h1 class="form-login-heading">{{ localize('login_with_your_account', website_branding.name) }}</h1>
         {% endif %}
         <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
         <input type="text" name="username" class="input-block-level" placeholder="{{ localize('username') }}">

@@ -11,11 +11,11 @@
         <a href="/">
             <img id="logo" src="{{ logo }}" alt="{{ website_branding.name }}">
         </a>
-        <h1>{{ localize('register') }}</h1>
+        <h1>{{ localize('register_an_account', website_branding.name) }}</h1>
     {% endif %}
     <form method="post" name="loginForm" id="loginForm" action="register" class="card has-padding">
         {% if current_theme != 'hitchhiker' %}
-            <h1 class="form-login-heading">{{ localize('register') }}</h1>
+            <h1 class="form-login-heading">{{ localize('register_an_account', website_branding.name) }}</h1>
         {% endif %}
 
         <input type="text" name="email" class="input-block-level" placeholder="{{ localize('email_address') }}" required>
