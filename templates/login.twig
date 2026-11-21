@@ -28,6 +28,6 @@
         <p>{{ localize('dont_have_an_account') }} <a href="/register">{{ localize('register') }}</a></p>
     {% endif %}
     <div class="login-footer">
-        {{ localize('footer_copyright', ('now' | date('Y'))) }}
+        {{ localize('footer_copyright', ('now' | date('Y'))) }}{% if is_fulptube %}, Not affiliated with Google LLC.{% endif %}
     </div>
 {% endblock %}

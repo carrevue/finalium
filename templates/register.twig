@@ -46,4 +46,7 @@
         <input class="button button-big button-primary" type="submit" value="{{ localize('register') }}"
                 name="registersubmit">
     </form>
+    <div class="login-footer">
+        {{ localize('footer_copyright', ('now' | date('Y'))) }}{% if is_fulptube %}, Not affiliated with Google LLC.{% endif %}
+    </div>
 {% endblock %}
