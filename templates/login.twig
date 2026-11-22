@@ -21,7 +21,7 @@
         <input class="button button-big button-primary" type="submit" value="{{ localize('login') }}"
                 name="loginsubmit">
         {% if is_fulptube %}
-            <p>Do not use your real Google/YouTube credentials.</p>
+            <p>{{ localize('login_dont_use_google_youtube') }}</p>
         {% endif %}
         {% if not is_test_instance and current_theme != "hitchhiker" %}
         <p>{{ localize('dont_have_an_account') }} <a href="/register">{{ localize('register') }}</a></p>
@@ -31,6 +31,6 @@
         <p>{{ localize('dont_have_an_account') }} <a href="/register">{{ localize('register') }}</a></p>
     {% endif %}
     <div class="login-footer">
-        {{ localize('footer_copyright', ('now' | date('Y'))) }}{% if is_fulptube %}, Not affiliated with Google LLC.{% endif %}
+        {{ localize('footer_copyright', ('now' | date('Y'))) }}
     </div>
 {% endblock %}
